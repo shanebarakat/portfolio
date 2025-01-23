@@ -40,3 +40,24 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.scrollbar-hide {
+  overflow: hidden; /* Hides both scrollbars */
+}
+
+.scrollbar-y-hide {
+  overflow-x: hidden; /* Hides horizontal scrollbar */
+  overflow-y: auto;   /* Keeps vertical scrolling */
+}
+
+/* Hide the scrollbar in modern browsers */
+.scrollbar-hide::-webkit-scrollbar,
+.scrollbar-y-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+/* For Firefox */
+.scrollbar-hide {
+  scrollbar-width: none;
+}
