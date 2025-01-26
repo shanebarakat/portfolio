@@ -6,12 +6,12 @@ import icon4 from "./assets/12090117491553664904.svg"
 
 const App: React.FC = () => {
   return (
-    <div className="bg-black text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
-      <h1 className="text-6xl font-bold mb-8 font-outfit">Shane Barakat</h1>
-      <h2 className="text-xl font-bold mb-8 max-w-[500px] text-center">
+    <div className="  bg-black no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
+      <h1 className="text-6xl font-bold mb-8 font-outfit ">Shane Barakat</h1>
+      <h2 className="text-xl font-bold mb-8 max-w-[500px] text-center ">
         Management Engineering Student at UWaterloo Exploring Software, Product, and Data Roles
       </h2>
-      <div className="flex gap-4">
+      <div className="flex gap-4 ">
   <a href="https://github.com/shanebarakat" target="_blank" rel="noreferrer">
   <img
     src={icon4}
@@ -42,9 +42,9 @@ const App: React.FC = () => {
 </div>
 
 
-      <div className="flex flex-col gap-8 mt-8 justify-center w-screen px-4">
+      <div className="flex flex-col gap-8 mt-8 justify-center max-w-screen px-4 box-border outline">
   {/* Row 1 */}
-  <div className="flex flex-col md:flex-row gap-4 justify-center">
+  <div className="flex flex-col md:flex-row gap-4 justify-cente ">
     {/* Image 1 */}
     <div className="flex flex-col items-start">
       <img
@@ -67,29 +67,30 @@ const App: React.FC = () => {
     </div>
   </div>
 
-  {/* Row 2 */}
   <div className="flex flex-col md:flex-row gap-4 justify-center">
-    {/* Image 3 */}
+    {/* Image 1 */}
     <div className="flex flex-col items-start">
       <img
         src={PlaceholderImage}
-        alt="Image 3"
+        alt="Image 1"
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
       />
-      <p className="mt-2 text-white text-lg">Caption for Image 3</p>
+      <p className="mt-2 text-white text-lg">Caption for Image 1</p>
       <p className="mt-2 text-gray-400 text-lg">Other Info</p>
     </div>
-    {/* Image 4 */}
+    {/* Image 2 */}
     <div className="flex flex-col items-start">
       <img
         src={PlaceholderImage}
-        alt="Image 4"
-        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
+        alt="Image 2"
+        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto "
       />
-      <p className="mt-2 text-white text-lg">Caption for Image 4</p>
+      <p className="mt-2 text-white text-lg">Caption for Image 2</p>
       <p className="mt-2 text-gray-400 text-lg">Other Info</p>
     </div>
   </div>
+
+  
 
   {/* Additional rows can be added here */}
 </div>
