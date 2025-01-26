@@ -17,7 +17,7 @@ const About: React.FC = () => {
             rel="noopener noreferrer"
             className="text-gray-500 hover:underline"
           >
-            Website
+            Company Website
           </a>
         </div>
 
@@ -35,7 +35,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Skills and Summary Section (Side by Side) */}
-          <div className="flex justify-between items-start mb-8 gap-8">
+          <div className="flex justify-between items-start mb-8 gap-7">
             {/* Skills Section */}
             <div className="flex-1">
               <h3 className="text-2xl font-bold mb-4">Skills</h3>
@@ -54,19 +54,23 @@ const About: React.FC = () => {
             <div className="flex-1">
               <h3 className="text-2xl font-bold mb-4">Summary</h3>
               <p className="text-lg leading-relaxed">
-                IntouchCX is a global leader in CX with major cleints .... As a software engineer, I worked on various projects to automate and improve internal practices. I worked in Automation Development, Product Design and AI Solutions. See more below:
+                IntouchCX is a global leader in CX with major cleints .... As a software engineer, I worked on various projects to automate and improve internal practices. I worked in Automation Development, Product Design and Intouch AI Solutions.<br></br> 
+                See more below:
               </p>
             </div>
           </div>
 
           {/* Detailed Text Section */}
           <div className="text-left">
+            <h2 className="text-3xl font-bold mb-4" >Summary</h2>
             <p className="text-lg mb-6 leading-relaxed">
               I am currently a Management Engineering student at the University of Waterloo. I am passionate about exploring roles in software development, product management, and data analytics. My academic journey has equipped me with a strong foundation in problem-solving, critical thinking, and technical skills, allowing me to excel in fast-paced environments.
             </p>
+            <h2 className="text-3xl font-bold mb-4"> QuickScribe</h2>
             <p className="text-lg mb-6 leading-relaxed">
               Recently, I joined IntouchCX as a Software Engineering Intern. In this role, I have been actively contributing to the development of scalable and efficient software solutions. Working closely with a team of experienced engineers, I have gained hands-on experience in designing, coding, and deploying features that enhance user experiences and operational efficiency.
             </p>
+            <h2 className="text-3xl font-bold mb-4" >Robotic Process Automation</h2>
             <p className="text-lg mb-6 leading-relaxed">
               At IntouchCX, I focus on collaborating with cross-functional teams to understand project requirements and deliver high-quality solutions. I’ve been exposed to technologies such as <em>React</em>, <em>TypeScript</em>, and <em>Node.js</em>, enabling me to build robust and maintainable codebases. My role also involves participating in code reviews, debugging complex issues, and optimizing performance.
             </p>
