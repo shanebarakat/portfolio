@@ -1,5 +1,6 @@
 import PlaceholderImage from './assets/Placeholder (1).png';
 import Intouch from './assets/Placeholder (2).png';
+import PillThought from './assets/Placeholder (3).png';
 import icon from './assets/20308214691623491653.svg';
 import icon2 from "./assets/13880855881556105710.svg";
 import icon3 from "./assets/17952689171595156226.svg"
@@ -59,12 +60,12 @@ const App: React.FC = () => {
     {/* Image 2 */}
     <div className="flex flex-col items-start">
       <img
-        src={PlaceholderImage}
+        src={PillThought}
         alt="Image 2"
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
       />
-      <p className="mt-2 text-white text-lg">Caption for Image 2</p>
-      <p className="mt-2 text-gray-400 text-lg">Other Info</p>
+      <p className="mt-2 text-white text-lg">Founding Engineer / COO - PillThought</p>
+      <p className="mt-2 text-gray-400 text-lg">September 2023 - Present</p>
     </div>
   </div>
 
