@@ -23,7 +23,7 @@ const About: React.FC = () => {
 
         {/* Content */}
         <div className="p-4">
-          <h1 className="text-5xl font-bold mb-3 text-center">IntouchCX</h1>
+          <h1 className="text-5xl font-hyperlegible font-medium mb-3 text-center">IntouchCX</h1>
           <h2 className="text-center">Software Engineer Intern</h2>
           <h2 className="mb-4 text-gray-500 text-center">Jan 2025 - April 2025</h2>
           <div className="flex justify-center">
@@ -70,6 +70,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+      
     </div>
   );
 };

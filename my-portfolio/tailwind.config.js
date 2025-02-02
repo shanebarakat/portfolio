@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "outfit": ['Outfit', 'sans-serif'],
+        'hyperlegible': ['"Atkinson Hyperlegible"', 'sans-serif'],
+        'noto': ['"Noto Sans Display"', 'sans-serif'],
       },
     },
   },

@@ -3,14 +3,33 @@ import Intouch from './assets/Placeholder (2).png';
 import PillThought from './assets/Placeholder (3).png';
 import icon from './assets/20308214691623491653.svg';
 import icon2 from "./assets/13880855881556105710.svg";
-import icon3 from "./assets/17952689171595156226.svg"
-import icon4 from "./assets/12090117491553664904.svg"
+import icon3 from "./assets/17952689171595156226.svg";
+import icon4 from "./assets/12090117491553664904.svg";
+import { useNavigate } from 'react-router-dom';
+
 
 const App: React.FC = () => {
+
+
+  const navigate = useNavigate(); // Initialize the navigate function
+
+  const openIntouch = () => {
+    navigate('/intouchcx'); // Navigate to the route
+  };
+
+  const openPillThougth = () => {
+    navigate('/pillthought'); // Navigate to the route
+  }
+
+
+
+
+
+
   return (
     <div className="  bg-black no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
-      <h1 className="text-6xl font-bold mb-6 font-outfit ">Shane Barakat</h1>
-      <h2 className="text-xl font-bold mb-6 max-w-[500px] text-center ">
+      <h1 className="text-6xl mb-6 font-hyperlegible font-medium">Shane Barakat</h1>
+      <h2 className="text-xl font-medium font-noto mb-6 max-w-[500px] text-center ">
         Management Engineering Student at UWaterloo Exploring Software, Product, and Data Roles
       </h2>
       <div className="flex gap-4 ">
@@ -53,9 +72,10 @@ const App: React.FC = () => {
         src={Intouch}
         alt="Image 1"
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
+        onClick={openIntouch}
       />
-      <p className="mt-2 text-white text-lg">SWE Intern - IntouchCX</p>
-      <p className="mt-2 text-gray-400 text-lg">Jan 2025 - Present</p>
+      <p className="mt-2 text-white text-lg font-noto">SWE Intern - IntouchCX</p>
+      <p className="mt-2 text-gray-400 text-lg font-noto">Jan 2025 - Present</p>
     </div>
     {/* Image 2 */}
     <div className="flex flex-col items-start">
@@ -63,9 +83,10 @@ const App: React.FC = () => {
         src={PillThought}
         alt="Image 2"
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
+        onClick = {openPillThougth}
       />
-      <p className="mt-2 text-white text-lg">Founding Engineer / COO - PillThought</p>
-      <p className="mt-2 text-gray-400 text-lg">September 2023 - Present</p>
+      <p className="mt-2 text-white text-lg font-noto">Founding Engineer / COO - PillThought</p>
+      <p className="mt-2 text-gray-400 text-lg font-noto">September 2023 - Present</p>
     </div>
   </div>
 
@@ -96,9 +117,20 @@ const App: React.FC = () => {
 
   {/* Additional rows can be added here */}
 </div>
-      
+<div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
+  <p className="text-gray-400 flex items-center justify-start py-4 ml-9">Shane Barakat</p>
+  <p className="text-gray-400 flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
+</div>
+
+
     </div>
+
+
+
   );
+  
 };
+
+
 
 export default App;
