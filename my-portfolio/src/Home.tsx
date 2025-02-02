@@ -75,7 +75,7 @@ const App: React.FC = () => {
         onClick={openIntouch}
       />
       <p className="mt-2 text-white text-lg font-noto">SWE Intern - IntouchCX</p>
-      <p className="mt-2 text-gray-400 text-lg font-noto">Jan 2025 - Present</p>
+      <p className=" text-gray-400 text-lg font-noto">Jan 2025 - Present</p>
     </div>
     {/* Image 2 */}
     <div className="flex flex-col items-start">
@@ -86,7 +86,7 @@ const App: React.FC = () => {
         onClick = {openPillThougth}
       />
       <p className="mt-2 text-white text-lg font-noto">Founding Engineer / COO - PillThought</p>
-      <p className="mt-2 text-gray-400 text-lg font-noto">September 2023 - Present</p>
+      <p className=" text-gray-400 text-lg font-noto">September 2023 - Present</p>
     </div>
   </div>
 
@@ -109,7 +109,7 @@ const App: React.FC = () => {
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto "
       />
       <p className="mt-2 text-white text-lg">Caption for Image 2</p>
-      <p className="mt-2 text-gray-400 text-lg">Other Info</p>
+      <p className=" text-gray-400 text-lg">Other Info</p>
     </div>
   </div>
 
@@ -119,7 +119,7 @@ const App: React.FC = () => {
 </div>
 <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
   <p className="text-gray-400 flex items-center justify-start py-4 ml-9">Shane Barakat</p>
-  <p className="text-gray-400 flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
+  <p className="text-gray-400 flex items-center py-4 justify-end mr-9">Last Update - February</p>
 </div>
 
 
