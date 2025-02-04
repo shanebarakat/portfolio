@@ -3,19 +3,19 @@ import Intouch from './assets/Placeholder (2).png';
 
 const About: React.FC = () => {
   return (
-    <div className="bg-black text-white min-h-screen w-screen flex justify-center items-center px-6">
+    <div className="bg-black text-white min-h-screen w-screen flex flex-col justify-center items-center px-6">
       {/* Container for Links and Content */}
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-3xl mt-2">
         {/* Top Links */}
         <div className="w-full flex justify-between px-6 py-4">
-          <a href="/" className="text-gray-500 hover:text-green-400">
+          <a href="/" className="text-gray-500 font-noto hover:text-green-400">
             ← Back to Home
           </a>
           <a
             href="https://www.intouchcx.com/solutions/intouchai-automation/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 hover:text-green-400"
+            className="text-gray-500 font-noto hover:text-green-400"
           >
             Company Website
           </a>
@@ -23,9 +23,9 @@ const About: React.FC = () => {
 
         {/* Content */}
         <div className="p-4">
-          <h1 className="text-5xl font-hyperlegible font-medium mb-3 text-center">IntouchCX</h1>
-          <h2 className="text-center">Software Engineer Intern</h2>
-          <h2 className="mb-4 text-gray-500 text-center">Jan 2025 - April 2025</h2>
+          <h1 className="text-5xl font-hyperlegible font-medium mb-3 font-hyperlegible font-medium text-center font-negligle">IntouchCX</h1>
+          <h2 className="text-center font-noto">Software Engineer Intern</h2>
+          <h2 className="mb-4 text-gray-500 font-noto text-center">Jan 2025 - April 2025</h2>
           <div className="flex justify-center">
             <img
               src={Intouch}
@@ -38,8 +38,8 @@ const About: React.FC = () => {
           <div className="flex justify-between items-start mb-8 gap-7">
             {/* Skills Section */}
             <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-4">Skills</h3>
-              <ul className="list-none space-y-2 text-lg leading-relaxed">
+              <h3 className="text-3xl font-medium font-hyperlegible mb-4">Skills</h3>
+              <ul className="list-none space-y-q text-lg leading-relaxed text-gray-400 font-noto ">
                 <li>AWS</li>
                 <li>C#</li>
                 <li>.Net</li>
@@ -52,25 +52,28 @@ const About: React.FC = () => {
 
             {/* Summary Section */}
             <div className="flex-1">
-              <h3 className="text-2xl font-bold mb-4">Summary</h3>
-              <p className="text-lg leading-relaxed">
+              <h3 className="text-3xl font-medium font-hyperlegible mb-4">Summary</h3>
+              <p className="text-lg font-noto text-gray-400 leading-relaxed">
                 IntouchCX is a global leader in CX with major cleints .... As a software engineer, I worked on various projects to automate and improve internal practices. I worked in Automation Development, Product Design and Intouch AI Solutions.<br></br> 
-                See more below:
+                See more below!
               </p>
             </div>
           </div>
 
           {/* Detailed Text Section */}
           <div className="text-left">
-            <h2 className="text-3xl font-bold mb-4" >Summary</h2>
-            <p className="text-lg mb-6 leading-relaxed">
+            <h2 className="text-3xl font-medium font-hyperlegible mb-4" >Overview</h2>
+            <p className="text-lg mb-6 font-noto text-gray-400 leading-relaxed">
               Currently in this role! Updates to come.....
             </p>
             
           </div>
         </div>
       </div>
-      
+      <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
+  <p className="text-gray-400 flex items-center justify-start py-4 ml-9">Shane Barakat</p>
+  <p className="text-gray-400 flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
+</div>
     </div>
   );
 };

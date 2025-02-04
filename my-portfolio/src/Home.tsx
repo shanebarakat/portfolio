@@ -6,6 +6,7 @@ import icon2 from "./assets/13880855881556105710.svg";
 import icon3 from "./assets/17952689171595156226.svg";
 import icon4 from "./assets/12090117491553664904.svg";
 import { useNavigate } from 'react-router-dom';
+import Snowfall from 'react-snowfall';
 
 
 const App: React.FC = () => {
@@ -28,6 +29,7 @@ const App: React.FC = () => {
 
   return (
     <div className="  bg-black no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
+       <Snowfall color="white" snowflakeCount={50} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '155%', zIndex: 0 }} />
       <h1 className="text-6xl mb-6 font-hyperlegible font-medium">Shane Barakat</h1>
       <h2 className="text-xl font-medium font-noto mb-6 max-w-[500px] text-center ">
         Management Engineering Student at UWaterloo Exploring Software, Product, and Data Roles

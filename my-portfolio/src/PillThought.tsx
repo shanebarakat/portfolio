@@ -7,7 +7,7 @@ import future from './assets/future.png';
 
 const About: React.FC = () => {
   return (
-    <div className="bg-black text-white min-h-screen w-screen flex justify-center items-center px-6">
+    <div className="bg-black text-white min-h-screen w-screen flex flex-col justify-center items-center px-6">
       {/* Container for Links and Content */}
       <div className="w-full max-w-3xl mt-2">
         {/* Top Links */}
@@ -42,7 +42,7 @@ const About: React.FC = () => {
           <div className="text-left">
             <h2 className="text-3xl font-normal mb-4 font-hyperlegible">Summary</h2>
             <p className="text-lg mb-6 leading-relaxed font-noto text-gray-400">
-              PillThought Technologies is a software company founded by University of Waterloo and Wilfrid Laurier University students, focused on developing innovative solutions for local pharmacies, healthcare centers, and hospitals. As the Founding Engineer and COO, I lead software development initiatives while managing the company’s operations and sales teams. Our mission is to modernize the healthcare industry with affordable, effective solutions.
+              PillThought Technologies is a software company founded by University of Waterloo and Wilfrid Laurier University students, focused on developing innovative solutions for local pharmacies, healthcare centers, and hospitals. As the Founding Engineer and COO, I <span className = 'text-white'>lead software development </span>initiatives while <span className = 'text-white'>managing the company’s operations and sales teams.</span> Our mission is to modernize the healthcare industry with affordable, effective solutions.
             </p>
 
             <h2 className="text-3xl font-normal mb-4 font-hyperlegible">Origins</h2>
@@ -52,7 +52,7 @@ const About: React.FC = () => {
               className="rounded-lg cursor-pointer w-full h-auto mb-6"
             />
             <p className="text-lg mb-6 leading-relaxed text-gray-400">
-              PillThought started as a vision shared by three close friends during our first year of university: Jay, a Pharmacy student; Alex, a Computational Mathematics student; and myself, a Management Engineering student. Our goal was to combine our unique skill sets to address the technological gaps in the healthcare industry. By building impactful and cost-effective software solutions, we aim to make a tangible difference in the field while fostering affordability and accessibility.
+              PillThought started as a vision shared by three close friends during our first year of university: Jay, a Pharmacy student (middle); Alex, a Computational Mathematics student (right); and myself, a Management Engineering student. Our goal was to combine our unique skill sets to address the technological gaps in the healthcare industry. By building impactful and cost-effective software solutions, we aim to make a tangible difference in the field while fostering affordability and accessibility.
             </p>
 
             <h2 className="text-3xl font-normal mb-4 font-hyperlegible">Campus Pharmasave Mobile App</h2>
@@ -65,7 +65,7 @@ const About: React.FC = () => {
               loop
             ></video>
             <p className="text-lg mb-6 leading-relaxed font-noto text-gray-400">
-              One of our standout projects is the Campus Pharmasave Mobile App, developed for the Campus Pharmasave Pharmacy in Waterloo, Ontario. This app serves as a digital coupon book, offering students discounts on medications, vitamins, and other products. It also allows users to book appointments and receive notifications when prescriptions are ready for pickup. The app has been a game-changer, increasing the pharmacy’s revenue by 20% while earning a 5-star rating on the iOS App Store, with glowing reviews from students and pharmacy staff alike.
+              One of our standout projects is the Campus Pharmasave Mobile App, developed for the Campus Pharmasave Pharmacy in Waterloo, Ontario. This app serves as a digital coupon book, offering students discounts on medications, vitamins, and other products. It also allows users to book appointments and receive notifications when prescriptions are ready for pickup. The app has been a game-changer, <span className = 'text-white'>increasing the pharmacy’s revenue by 20%</span> while earning a <span className = 'text-white'>5-star rating on the iOS App Store</span>, with glowing reviews from students and pharmacy staff alike.
             </p>
 
             <h2 className="text-3xl font-normal mb-4 font-hyperlegible">Partners & Achievements</h2>
@@ -75,7 +75,7 @@ const About: React.FC = () => {
               className="rounded-lg cursor-pointer w-full h-auto mb-6"
             />
             <p className="text-lg mb-6 leading-relaxed font-noto text-gray-400">
-              We’ve built strong partnerships with organizations such as Campus Pharmasave, University of Waterloo Campus Pharmasave, SMG Pharmacy, IronOak Pharmacy, and more. Our efforts have been recognized with a Velocity Cornerstone grant from the University of Waterloo's startup incubator and a partnership with BMO Bank to introduce tailored financial solutions for pharmacies.
+              We’ve built strong partnerships with organizations such as Campus Pharmasave, University of Waterloo Campus Pharmasave, SMG Pharmacy, IronOak Pharmacy, and more. Our efforts have been recognized with a <span className = 'text-white'>Velocity Cornerstone grant </span>from the University of Waterloo's startup incubator and a <span className = 'text-white'> partnership with BMO Bank</span> to introduce tailored financial solutions for pharmacies.
             </p>
 
             <h2 className="text-3xl font-normal mb-4 font-hyperlegible">Future Goals</h2>
@@ -90,6 +90,10 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+      <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
+  <p className="text-gray-400 flex items-center justify-start py-4 ml-9">Shane Barakat</p>
+  <p className="text-gray-400 flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
+</div>
     </div>
   );
 };
