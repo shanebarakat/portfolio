@@ -8,14 +8,14 @@ const About: React.FC = () => {
       <div className="w-full max-w-3xl mt-2">
         {/* Top Links */}
         <div className="w-full flex justify-between px-6 py-4">
-          <a href="/" className="text-gray-500 font-noto hover:text-green-400">
+          <a href="/" className="text-gray-500 font-noto hover:text-green-400 duration-300">
             ← Back to Home
           </a>
           <a
             href="https://www.intouchcx.com/solutions/intouchai-automation/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-500 font-noto hover:text-green-400"
+            className="text-gray-500 font-noto hover:text-green-400 duration-300"
           >
             Company Website
           </a>

@@ -1,12 +1,10 @@
 import PlaceholderImage from './assets/Placeholder (1).png';
 import Intouch from './assets/Placeholder (2).png';
 import PillThought from './assets/Placeholder (3).png';
-import icon from './assets/20308214691623491653.svg';
-import icon2 from "./assets/13880855881556105710.svg";
-import icon3 from "./assets/17952689171595156226.svg";
-import icon4 from "./assets/12090117491553664904.svg";
 import { useNavigate } from 'react-router-dom';
-import Snowfall from 'react-snowfall';
+
+
+
 
 
 const App: React.FC = () => {
@@ -24,44 +22,26 @@ const App: React.FC = () => {
 
 
 
-
-
+  
 
   return (
-    <div className="  bg-black no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
-       <Snowfall color="white" snowflakeCount={50} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '155%', zIndex: 0 }} />
-      <h1 className="text-6xl mb-6 font-hyperlegible font-medium">Shane Barakat</h1>
+    <div className=" bg-black bg-[radial-gradient(circle,rgba(255,255,255,0.2)_1px,rgba(0,9,29,0)_1px)] bg-[size:20px_20px] no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
+      <h1 className="text-6xl mb-6 font-hyperlegible font-semibold">Shane Barakat</h1>
       <h2 className="text-xl font-medium font-noto mb-6 max-w-[500px] text-center ">
         Management Engineering Student at UWaterloo Exploring Software, Product, and Data Roles
       </h2>
       <div className="flex gap-4 ">
   <a href="https://github.com/shanebarakat" target="_blank" rel="noreferrer">
-  <img
-    src={icon4}
-    className="w-12 h-12 transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
-    alt="Icon 1"
-  />
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github transition-colors duration-300 hover:stroke-white"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
   </a>
   <a href="https://www.linkedin.com/in/shane-barakat/" target="_blank" rel="noreferrer">
-  <img
-    src={icon2}
-    className="w-11 h-12 transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
-    alt="Icon 2"
-  />
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin transition-colors duration-300 hover:stroke-white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
   </a>
   <a href= "mailto:srbaraka@uwaterloo.ca" target="_blank" rel="noreferrer">
-  <img
-    src={icon3}
-    className="w-12 h-12 transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
-    alt="Icon 3"
-  />
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail transition-colors duration-300 hover:stroke-white"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
   </a>
   
-  <img
-    src={icon}
-    className="w-12 h-12 transition-transform duration-300 hover:scale-110 drop-shadow-[0_0_10px_rgba(255,255,255,1)]"
-    alt="Icon 4"
-  />
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-user transition-colors duration-300 hover:stroke-white"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 18a3 3 0 1 0-6 0"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><circle cx="12" cy="13" r="2"/></svg>
 </div>
 
 
@@ -73,7 +53,7 @@ const App: React.FC = () => {
       <img
         src={Intouch}
         alt="Image 1"
-        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
+        className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[700px] h-auto duration-300"
         onClick={openIntouch}
       />
       <p className="mt-2 text-white text-lg font-noto">SWE Intern - IntouchCX</p>
@@ -84,7 +64,7 @@ const App: React.FC = () => {
       <img
         src={PillThought}
         alt="Image 2"
-        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
+        className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[700px] h-auto duration-300"
         onClick = {openPillThougth}
       />
       <p className="mt-2 text-white text-lg font-noto">Founding Engineer / COO - PillThought</p>
@@ -98,7 +78,7 @@ const App: React.FC = () => {
       <img
         src={PlaceholderImage}
         alt="Image 1"
-        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto"
+        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
       />
       <p className="mt-2 text-white text-lg">Caption for Image 1</p>
       <p className="mt-2 text-gray-400 text-lg">Other Info</p>
@@ -108,7 +88,7 @@ const App: React.FC = () => {
       <img
         src={PlaceholderImage}
         alt="Image 2"
-        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto "
+        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
       />
       <p className="mt-2 text-white text-lg">Caption for Image 2</p>
       <p className=" text-gray-400 text-lg">Other Info</p>
