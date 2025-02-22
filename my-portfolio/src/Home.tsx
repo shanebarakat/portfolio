@@ -22,6 +22,10 @@ const App: React.FC = () => {
     navigate('/pillthought'); // Navigate to the route
   }
 
+  const openPalkia = () => {
+    navigate('/palkia');
+  }
+
   
 
 
@@ -70,6 +74,7 @@ const App: React.FC = () => {
         src={Palkia}
         alt="Image 2"
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
+        onClick={openPalkia}
       />
       <p className="mt-2 text-white text-lg">Project - Palkia</p>
       <p className=" text-gray-400 text-lg">2025</p>
