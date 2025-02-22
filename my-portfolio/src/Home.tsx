@@ -1,6 +1,8 @@
 import PlaceholderImage from './assets/Placeholder (1).png';
 import Intouch from './assets/Placeholder (2).png';
 import PillThought from './assets/Placeholder (3).png';
+import Watonomous from './assets/future (1).png';
+import Palkia from './assets/future (4).png';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -19,6 +21,8 @@ const App: React.FC = () => {
   const openPillThougth = () => {
     navigate('/pillthought'); // Navigate to the route
   }
+
+  
 
 
 
@@ -60,6 +64,21 @@ const App: React.FC = () => {
       <p className=" text-gray-400 text-lg font-noto">Jan 2025 - Present</p>
     </div>
     {/* Image 2 */}
+    {/* Image 2 */}
+    <div className="flex flex-col items-start">
+      <img
+        src={Palkia}
+        alt="Image 2"
+        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
+      />
+      <p className="mt-2 text-white text-lg">Project - Palkia</p>
+      <p className=" text-gray-400 text-lg">2025</p>
+    </div>
+    
+  </div>
+
+  <div className="flex flex-col md:flex-row gap-4 justify-center">
+    {/* Image 1 */}
     <div className="flex flex-col items-start">
       <img
         src={PillThought}
@@ -70,29 +89,17 @@ const App: React.FC = () => {
       <p className="mt-2 text-white text-lg font-noto">Founding Engineer / COO - PillThought</p>
       <p className=" text-gray-400 text-lg font-noto">September 2023 - Present</p>
     </div>
-  </div>
-
-  <div className="flex flex-col md:flex-row gap-4 justify-center">
-    {/* Image 1 */}
     <div className="flex flex-col items-start">
       <img
-        src={PlaceholderImage}
+        src={Watonomous}
         alt="Image 1"
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
+        onClick = {() => window.open('https://www.watonomous.ca/about', '_blank')}
       />
-      <p className="mt-2 text-white text-lg">Caption for Image 1</p>
-      <p className="mt-2 text-gray-400 text-lg">Other Info</p>
+      <p className="mt-2 font-noto text-white text-lg">Software Engineer - WATO Design Team</p>
+      <p className="text-gray-400 font-noto text-lg">Jan 2025 - Present</p>
     </div>
-    {/* Image 2 */}
-    <div className="flex flex-col items-start">
-      <img
-        src={PlaceholderImage}
-        alt="Image 2"
-        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
-      />
-      <p className="mt-2 text-white text-lg">Caption for Image 2</p>
-      <p className=" text-gray-400 text-lg">Other Info</p>
-    </div>
+    
   </div>
 
   
