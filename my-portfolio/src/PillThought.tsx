@@ -14,7 +14,7 @@ const About: React.FC = () => {
 
 
   return (
-    <div className="bg-black text-white min-h-screen w-screen flex flex-col justify-center items-center px-6">
+    <div className="bg-black text-sm sm:text-base text-white min-h-screen w-screen flex flex-col justify-center items-center px-6">
       {/* Container for Links and Content */}
       <div className="w-full max-w-3xl mt-2">
         {/* Top Links */}
@@ -62,7 +62,7 @@ const About: React.FC = () => {
               PillThought started as a vision shared by three close friends during our first year of university: Jay, a Pharmacy student (middle); Alex, a Computational Mathematics student (right); and myself, a Management Engineering student. Our goal was to combine our unique skill sets to address the technological gaps in the healthcare industry. By building impactful and cost-effective software solutions, we aim to make a tangible difference in the field while fostering affordability and accessibility.
             </p>
 
-            <h2 className="text-[25px] sm:text-3xl font-normal mb-4 font-hyperlegible">Campus Pharmasave Mobile App</h2>
+            <h2 className="text-[20px] sm:text-3xl font-normal mb-4 font-hyperlegible">Campus Pharmasave Mobile App</h2>
             <video
               src={PharmasaveVideo}
               className="rounded-lg cursor-pointer w-full h-auto mb-6"
