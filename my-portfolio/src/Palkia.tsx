@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Intouch from './assets/Placeholder (2).png';
 
 const About: React.FC = () => {
+
+  useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   return (
     <div className="bg-black text-white min-h-screen w-screen flex flex-col justify-center items-center px-6">
       {/* Container for Links and Content */}

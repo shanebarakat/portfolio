@@ -34,8 +34,8 @@ const App: React.FC = () => {
 
   return (
     <div className=" bg-black bg-[radial-gradient(circle,rgba(255,255,255,0.2)_1px,rgba(0,9,29,0)_1px)] bg-[size:20px_20px] no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
-      <h1 className="text-6xl mb-6 font-hyperlegible font-semibold">Shane Barakat</h1>
-      <h2 className="text-xl font-medium font-noto mb-6 max-w-[500px] text-center ">
+      <h1 className="text-[45px] sm:text-6xl sm:mb-6 font-hyperlegible font-semibold">Shane Barakat</h1>
+      <h2 className="text-5px sm:text-xl font-medium font-noto mb-6 max-w-[500px] text-center ">
         Management Engineering Student at UWaterloo Exploring Software, Product, and Data Roles
       </h2>
       <div className="flex gap-4 ">
@@ -53,7 +53,7 @@ const App: React.FC = () => {
 </div>
 
 
-      <div className="flex flex-col gap-8 mt-8 justify-center max-w-screen px-4 box-border">
+      <div className="flex  flex-col gap-8 mt-8 justify-center max-w-screen px-4 box-border">
   {/* Row 1 */}
   <div className="flex flex-col md:flex-row gap-4 justify-cente ">
     {/* Image 1 */}
@@ -64,8 +64,8 @@ const App: React.FC = () => {
         className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[700px] h-auto duration-300"
         onClick={openIntouch}
       />
-      <p className="mt-2 text-white text-lg font-noto">SWE Intern - IntouchCX</p>
-      <p className=" text-gray-400 text-lg font-noto">Jan 2025 - Present</p>
+      <p className="mt-2 text-5px sm:text-xl text-white  font-noto">SWE Intern - IntouchCX</p>
+      <p className=" text-base text-gray-400  font-noto">Jan 2025 - Present</p>
     </div>
     {/* Image 2 */}
     {/* Image 2 */}
@@ -76,8 +76,8 @@ const App: React.FC = () => {
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
         onClick={openPalkia}
       />
-      <p className="mt-2 text-white text-lg">Project - Palkia</p>
-      <p className=" text-gray-400 text-lg">2025</p>
+      <p className="mt-2 text-5px sm:text-xl font-noto text-white ">Project - Palkia</p>
+      <p className=" text-gray-400 font-noto text-base ">2025</p>
     </div>
     
   </div>
@@ -91,8 +91,8 @@ const App: React.FC = () => {
         className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[700px] h-auto duration-300"
         onClick = {openPillThougth}
       />
-      <p className="mt-2 text-white text-lg font-noto">Founding Engineer / COO - PillThought</p>
-      <p className=" text-gray-400 text-lg font-noto">September 2023 - Present</p>
+      <p className="mt-2 text-white text-5px sm:text-xl font-noto">Founding Engineer / COO - PillThought</p>
+      <p className=" text-gray-400 text-base font-noto">September 2023 - Present</p>
     </div>
     <div className="flex flex-col items-start">
       <img
@@ -101,8 +101,8 @@ const App: React.FC = () => {
         className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[700px] h-auto duration-300"
         onClick = {() => window.open('https://www.watonomous.ca/about', '_blank')}
       />
-      <p className="mt-2 font-noto text-white text-lg">Software Engineer - WATO Design Team</p>
-      <p className="text-gray-400 font-noto text-lg">Jan 2025 - Present</p>
+      <p className="mt-2 font-noto text-white text-5px sm:text-xl">Software Engineer - WATO Design Team</p>
+      <p className="text-gray-400 font-noto text-base">Jan 2025 - Present</p>
     </div>
     
   </div>
@@ -112,8 +112,8 @@ const App: React.FC = () => {
   {/* Additional rows can be added here */}
 </div>
 <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
-  <p className="text-gray-400 flex items-center justify-start py-4 ml-9">Shane Barakat</p>
-  <p className="text-gray-400 flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
+  <p className="text-gray-400 flex items-center justify-start sm:text-base text-xs py-4 ml-9">Shane Barakat</p>
+  <p className="text-gray-400 flex items-center py-4 justify-end sm:text-base text-xs mr-9">Last Update - February 2025</p>
 </div>
 
 
