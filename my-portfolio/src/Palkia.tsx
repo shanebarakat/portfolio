@@ -8,7 +8,7 @@ const About: React.FC = () => {
     }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen w-screen flex flex-col justify-center items-center px-6">
+    <div className="bg-black text-white text-sm sm:text-base min-h-screen w-screen flex flex-col justify-center items-center px-6">
       {/* Container for Links and Content */}
       <div className="w-full max-w-3xl mt-2">
         {/* Top Links */}
@@ -28,7 +28,7 @@ const About: React.FC = () => {
 
         {/* Content */}
         <div className="p-4">
-          <h1 className="text-5xl font-hyperlegible font-medium mb-3 font-hyperlegible font-medium text-center font-negligle">Palkia AI</h1>
+          <h1 className="text-[35px] sm:text-5xl font-hyperlegible font-medium mb-3 font-hyperlegible font-medium text-center font-negligle">Palkia AI</h1>
           <h2 className="text-center font-noto">Project</h2>
           <h2 className="mb-4 text-gray-500 font-noto text-center">2025</h2>
           <div className="flex justify-center">
@@ -43,8 +43,8 @@ const About: React.FC = () => {
           <div className="flex justify-between items-start mb-8 gap-7">
             {/* Skills Section */}
             <div className="flex-1">
-              <h3 className="text-3xl font-medium font-hyperlegible mb-4">Stack</h3>
-              <ul className="list-none space-y-q text-lg leading-relaxed text-gray-400 font-noto ">
+              <h3 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4">Stack</h3>
+              <ul className="list-none space-y-q sm:text-lg text-[12px] leading-relaxed text-gray-400 font-noto ">
                 <li>Python</li>
                 <li>React</li>
                 <li>Typescript</li>
@@ -56,9 +56,9 @@ const About: React.FC = () => {
 
             {/* Summary Section */}
             <div className="flex-1">
-              <h3 className="text-3xl font-medium font-hyperlegible mb-4">Summary</h3>
-              <p className="text-lg font-noto text-gray-400 leading-relaxed">
-              Palkia is an AI platform that streamlines bug tracking with a Sandbox Chatbot for detailed tickets, Batch API for bulk requests, and seamless Jira integration, optimizing workflows for dev teams.
+              <h3 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4">Summary</h3>
+              <p className="sm:text-lg text-[12px] font-noto text-gray-400 leading-relaxed">
+              Palkia is an AI platform that streamlines bug tracking with a Chatbot for detailed tickets, Batch API for bulk requests, and seamless Jira integration, optimizing workflows for dev teams.
               </p>
             </div>
           </div>
@@ -74,8 +74,8 @@ const About: React.FC = () => {
         </div>
       </div>
       <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
-  <p className="text-gray-400 flex items-center justify-start py-4 ml-9">Shane Barakat</p>
-  <p className="text-gray-400 flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
+  <p className="text-gray-400 ssm:text-base text-xs flex items-center justify-start py-4 ml-9">Shane Barakat</p>
+  <p className="text-gray-400 sm:text-base text-xs flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
 </div>
     </div>
   );
