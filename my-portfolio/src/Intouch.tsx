@@ -78,7 +78,7 @@ const About: React.FC = () => {
       </div>
       <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
   <p className="text-gray-400 sm:text-base text-xs flex items-center justify-start py-4 ml-9">Shane Barakat</p>
-  <p className="text-gray-400 sm:text-base text-xs flex items-center py-4 justify-end mr-9">Last Update - February 2025</p>
+  <p className="text-gray-400 sm:text-base text-xs flex items-center py-4 justify-end mr-9">Last Update - March 2025</p>
 </div>
     </div>
   );
