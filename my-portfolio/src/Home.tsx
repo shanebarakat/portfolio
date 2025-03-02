@@ -33,7 +33,8 @@ const App: React.FC = () => {
   
 
   return (
-    <div className=" bg-black bg-[radial-gradient(circle,rgba(255,255,255,0.2)_1px,rgba(0,9,29,0)_1px)] bg-[size:20px_20px] no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
+    <div className="bg-black bg-[radial-gradient(circle,rgba(180,180,180,0.2)_1px,rgba(0,9,29,0)_1px)] bg-[size:20px_20px] no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
+
       <h1 className="text-[45px] sm:text-6xl sm:mb-6 font-hyperlegible font-semibold">Shane Barakat</h1>
       <h2 className="text-5px sm:text-xl font-medium font-noto mb-6 max-w-[500px] text-center ">
         Management Engineering Student at UWaterloo Exploring Software, Product, and Data Roles
@@ -111,9 +112,9 @@ const App: React.FC = () => {
 
   {/* Additional rows can be added here */}
 </div>
-<div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
-  <p className="text-gray-400 flex items-center justify-start sm:text-base text-xs py-4 ml-9">Shane Barakat</p>
-  <p className="text-gray-400 flex items-center py-4 justify-end sm:text-base text-xs mr-9">Last Update - February 2025</p>
+<div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 bg-black border-gray-600">
+  <p className="text-white flex items-center justify-start sm:text-base text-xs py-4 ml-9">Shane Barakat</p>
+  <p className="text-white flex items-center py-4 justify-end sm:text-base text-xs mr-9">Last Update - February 2025</p>
 </div>
 
 
