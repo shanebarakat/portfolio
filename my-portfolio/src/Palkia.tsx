@@ -19,12 +19,12 @@ const About: React.FC = () => {
             ← Back to Home
           </a>
           <a
-            href=""
+            href="https://palkia.me/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-500 font-noto hover:text-purple-900 duration-300"
           >
-            Github
+            Wailist
           </a>
         </div>
 
