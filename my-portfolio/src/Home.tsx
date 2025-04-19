@@ -77,7 +77,7 @@ const App: React.FC = () => {
         
         {/* Right column with Recently section - with offset to align with Palkia image */}
         <div className="w-[48%] pl-1">
-          <h3 className="text-2xl font-hyperlegible font-semibold mb-3">Recently I...</h3>
+          <h3 className="text-2xl font-hyperlegible font-semibold mb-3">Recently, I...</h3>
           <ul className="space-y-2 font-noto text-gray-300">
             <li className="flex items-center flex-wrap gap-1">
               → Built 
