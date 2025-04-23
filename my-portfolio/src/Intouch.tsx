@@ -46,7 +46,7 @@ const About: React.FC = () => {
             <div className="flex-1">
               <h3 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4">Skills</h3>
               <ul className="list-none space-y-q sm:text-lg text-[12px] leading-relaxed text-gray-400 font-noto ">
-                <li>AWS</li>
+                <li>Vue.js</li>
                 <li>C#</li>
                 <li>.Net</li>
                 <li>Javascript</li>
@@ -60,25 +60,40 @@ const About: React.FC = () => {
             <div className="flex-1">
               <h3 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4">Summary</h3>
               <p className="sm:text-lg text-[12px] font-noto text-gray-400 leading-relaxed">
-                IntouchCX is a global leader in CX with huge clients. As a software engineer, I worked on various projects to automate and improve internal practices. I worked in Automation Development, and AI Solutions.<br></br> 
-                See more below!
-              </p>
+  IntouchCX is a global customer experience provider serving leading tech clients. As a Software Engineer Intern, I developed automation pipelines and integrated AI-driven tools to streamline internal workflows, reduce manual overhead, and enhance scalability across high-volume support operations.
+</p>
+
+
             </div>
           </div>
 
           {/* Detailed Text Section */}
           <div className="text-left">
-            <h2 className="text-3xl font-medium font-hyperlegible mb-4" >Overview</h2>
-            <p className="text-lg mb-6 font-noto text-gray-400 leading-relaxed">
-              Currently in this role! Updates to come.....
-            </p>
+            <h2 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4" >Overview</h2>
+            <p className="sm:text-lg text-[12px] font-noto mb-6 text-gray-400 leading-relaxed">
+  • Developed enterprise-grade automations using <span className="text-white">C#/.NET</span> for multiple high-profile clients, resulting in over <span className="text-white">$50,000</span> in annual labor savings<br /><br />
+  
+  • Built and deployed a full-stack internal translation platform with <span className="text-white">React</span>, <span className="text-white">Node.js</span>, and <span className="text-white">SQL Server</span>, saving over <span className="text-white">10,000+ hours annually</span> for <span className="text-white">500+</span> global employees<br /><br />
+  
+  • Engineered scalable <span className="text-white">CI/CD pipelines</span> using <span className="text-white">Jenkins</span> and integrated automated test suites, increasing test coverage by <span className="text-white">35%</span> and reducing release time<br /><br />
+
+  
+  • Integrated internal tools with third-party APIs to streamline reporting and reduce manual workflows by over <span className="text-white">70%</span><br /><br />
+</p>
+
+<h2 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4" >Conclusion</h2>
+<p className="sm:text-lg text-[12px] font-noto text-gray-400 leading-relaxed">
+  Living and working in Winnipeg for several months was a unique and rewarding experience. It gave me the chance to grow both personally and professionally while being part of an incredible team at IntouchCX. I’m truly thankful for the opportunity to contribute to impactful projects and collaborate with talented individuals who constantly inspired innovation.
+</p>
+
+
             
           </div>
         </div>
       </div>
       <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
   <p className="text-gray-400 sm:text-base text-xs flex items-center justify-start py-4 ml-9">Shane Barakat</p>
-  <p className="text-gray-400 sm:text-base text-xs flex items-center py-4 justify-end mr-9">Last Update - March 2025</p>
+  <p className="text-gray-400 sm:text-base text-xs flex items-center py-4 justify-end mr-9">Last Update - April 2025</p>
 </div>
     </div>
   );

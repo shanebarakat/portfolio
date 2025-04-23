@@ -113,7 +113,7 @@ const App: React.FC = () => {
             </li>
 
             <li className="flex items-center flex-wrap gap-1">
-              → Completed SWE Co-OP at 
+              → Completed SWE Co-Op at 
               <a href="https://www.intouchcx.com/solutions/intouchai-automation/" target="_blank" rel="noreferrer" className="group inline-flex items-center">
                 <img 
                   src={Intouchlogo} 
@@ -144,7 +144,7 @@ const App: React.FC = () => {
               onClick={openIntouch}
             />
             <p className="mt-2 text-5px sm:text-xl text-white font-noto">SWE Intern - IntouchCX</p>
-            <p className="text-base text-gray-400 font-noto">Jan 2025 - Present</p>
+            <p className="text-base text-gray-400 font-noto">Jan 2025 - Apr 2025</p>
           </div>
 
           {/* Grid Cell 2 - Palkia */}
@@ -168,7 +168,7 @@ const App: React.FC = () => {
               onClick={openPillThougth}
             />
             <p className="mt-2 text-white text-5px sm:text-xl font-noto">Founding Engineer / COO - PillThought</p>
-            <p className="text-gray-400 text-base font-noto">September 2023 - Present</p>
+            <p className="text-gray-400 text-base font-noto">Sept 2023 - Present</p>
           </div>
 
           {/* Grid Cell 4 - Watonomous */}
