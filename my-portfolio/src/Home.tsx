@@ -5,9 +5,11 @@ import Palkia from './assets/future (4).png';
 import { useNavigate } from 'react-router-dom';
 import PocketATS from './assets/pocket_ats_logo_no_shadow (1).png'
 import UWaterloo from './assets/Waterloo logo.png'
+import Shopify from './assets/Shopify.png'
 import Googlelogo from './assets/Google Logo.svg'
 import Palkialogo from './assets/Palkia_Logo-removebg-preview.png'
 import Intouchlogo from './assets/IntouchCX logo.png'
+import ShopifyLogo from './assets/Shopify Logo.png'
 
 const App: React.FC = () => {
   const navigate = useNavigate(); // Initialize the navigate function
@@ -32,7 +34,7 @@ const App: React.FC = () => {
         <h1 className="text-[45px] sm:text-6xl sm:mb-6 font-hyperlegible font-semibold">Shane Barakat</h1>
         <h2 className="text-xl font-medium  text-center font-noto mb-6">
             Engineering Student at UWaterloo <br/>
-            Seeking Fall 2025 Co-Op Oppurtunities 
+            Seeking Summer 2026 Internship Oppurtunities 
           </h2>
         <div className="flex gap-4">
           <a href="https://github.com/shanebarakat" target="_blank" rel="noreferrer">
@@ -57,7 +59,7 @@ const App: React.FC = () => {
           <h1 className="text-5xl font-hyperlegible font-semibold mb-4">Shane Barakat</h1>
           <h2 className="text-xl font-medium font-noto mb-6">
             Management Engineering Student at UWaterloo <br/>
-            Seeking Fall 2025 Co-Op Oppurtunities (SWE, Data, Product)
+            Seeking Summer 2026 Co-Op Oppurtunities (SWE, Data, Product)
           </h2>
           <div className="flex gap-4 mb-4">
             <a href="https://github.com/shanebarakat" target="_blank" rel="noreferrer">
@@ -79,6 +81,16 @@ const App: React.FC = () => {
         <div className="w-[48%] pl-1">
           <h3 className="text-2xl font-hyperlegible font-semibold mb-3">Recently, I...</h3>
           <ul className="space-y-2 font-noto text-gray-300">
+          <li className="flex items-center flex-wrap gap-1">
+              → Secured Fall 2025 Co-Op at <a href="https://www.shopify.com/ca" target="_blank" rel="noreferrer" className="group inline-flex items-center">
+                <img 
+                  src={ShopifyLogo} 
+                  className='w-[17px] ml-1 mr-1 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-8' 
+                  alt="Shopify"
+                /> <span className="text-green-200 transition-all duration-300 group-hover:text-green-500 group-hover:underline">
+                Shopify
+              </span></a> as a Software Engineer Intern
+            </li>
             <li className="flex items-center flex-wrap gap-1">
               → Built 
               <a href="https://pocket-ats.live" target="_blank" rel="noreferrer" className="group inline-flex items-center">
@@ -135,6 +147,21 @@ const App: React.FC = () => {
       {/* Grid Layout for all screen sizes */}
       <div className="w-full max-w-screen-xl mt-8 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col items-start">
+            <img
+              src={Shopify}
+              alt="IntouchCX"
+              className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[800px] h-auto duration-300"
+              onClick={() => window.open('https://www.shopify.com/ca', '_blank')}
+            />
+            <p className="mt-2 text-5px sm:text-xl text-white font-noto">Incoming SWE Intern - Shopify</p>
+            <p className="text-base text-gray-400 font-noto">Sept 2025 - Dec 2025</p>
+          </div>
+
+
+
+
+
           {/* Grid Cell 1 - Intouch */}
           <div className="flex flex-col items-start">
             <img
@@ -180,7 +207,7 @@ const App: React.FC = () => {
               onClick={() => window.open('https://www.watonomous.ca/about', '_blank')}
             />
             <p className="mt-2 font-noto text-white text-5px sm:text-xl">Software Engineer - WATO Design Team</p>
-            <p className="text-gray-400 font-noto text-base">Jan 2025 - Present</p>
+            <p className="text-gray-400 font-noto text-base">Jan 2025 - May 2025</p>
           </div>
         </div>
       </div>
@@ -188,7 +215,7 @@ const App: React.FC = () => {
       {/* Footer */}
       <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 bg-black border-gray-600">
         <p className="text-white flex items-center justify-start sm:text-base text-xs py-4 ml-9">Shane Barakat</p>
-        <p className="text-white flex items-center py-4 justify-end sm:text-base text-xs mr-9">Last Update - April 2025</p>
+        <p className="text-white flex items-center py-4 justify-end sm:text-base text-xs mr-9">Last Update - May 2025</p>
       </div>
     </div>
   );
