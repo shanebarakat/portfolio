@@ -36,7 +36,7 @@ const About: React.FC = () => {
         <div className="p-4">
           <h1 className="text-[35px] sm:text-5xl font-hyperlegible font-medium mb-3 text-center">PillThought</h1>
           <h2 className="text-center font-noto">Founding Engineer/COO</h2>
-          <h2 className="mb-4 text-gray-500 text-center font-noto">Sept 2023 - Present</h2>
+          <h2 className="mb-4 text-gray-500 text-center font-noto">Sept 2023 - April 2025</h2>
           <div className="flex justify-center">
             <img
               src={PillThought}

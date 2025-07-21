@@ -10,6 +10,7 @@ import Googlelogo from './assets/Google Logo.svg'
 import Palkialogo from './assets/Palkia_Logo-removebg-preview.png'
 import Intouchlogo from './assets/IntouchCX logo.png'
 import ShopifyLogo from './assets/Shopify Logo.png'
+import PolarityLogo from './assets/startup (1).png'
 
 const App: React.FC = () => {
   const navigate = useNavigate(); // Initialize the navigate function
@@ -71,7 +72,7 @@ const App: React.FC = () => {
             <a href="mailto:srbaraka@uwaterloo.ca" target="_blank" rel="noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail transition-colors duration-300 hover:stroke-white"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </a>
-            <a href="https://drive.google.com/file/d/1BDZupSLmO9W5ERcOnFdeTV-XtNbXaAzZ/view?usp=sharing" target="_blank" rel="noreferrer">
+            <a href="https://drive.google.com/file/d/1K2uE4zAwysAU6qhHIvyrjAnHwrpMt3s1/view?usp=sharing" target="_blank" rel="noreferrer">
               <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-user transition-colors duration-300 hover:stroke-white"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 18a3 3 0 1 0-6 0"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><circle cx="12" cy="13" r="2"/></svg>
             </a>
           </div>
@@ -81,6 +82,18 @@ const App: React.FC = () => {
         <div className="w-[48%] pl-1">
           <h3 className="text-2xl font-hyperlegible font-semibold mb-3">Recently, I...</h3>
           <ul className="space-y-2 font-noto text-gray-300">
+          <li className="flex items-center flex-wrap gap-1">
+  → Won Spurhacks ($10k) for <a href="https://www.polarity.cc" target="_blank" rel="noreferrer" className="group inline-flex items-center">
+    <img 
+      src={PolarityLogo} 
+      className='w-[17px] mr-1 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-8' 
+      alt="Polarity"
+    /> 
+    <span className="text-gray-200 transition-all duration-300 group-hover:text-white group-hover:underline">
+      Polarity
+    </span>
+  </a>  & joined SPUR Accelerator at $1B HQ
+</li>
           <li className="flex items-center flex-wrap gap-1">
               → Secured Fall 2025 Co-Op at <a href="https://www.shopify.com/ca" target="_blank" rel="noreferrer" className="group inline-flex items-center">
                 <img 
@@ -195,7 +208,7 @@ const App: React.FC = () => {
               onClick={openPillThougth}
             />
             <p className="mt-2 text-white text-5px sm:text-xl font-noto">Founding Engineer / COO - PillThought</p>
-            <p className="text-gray-400 text-base font-noto">Sept 2023 - Present</p>
+            <p className="text-gray-400 text-base font-noto">Sept 2023 - April 2025</p>
           </div>
 
           {/* Grid Cell 4 - Watonomous */}
