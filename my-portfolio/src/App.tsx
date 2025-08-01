@@ -5,7 +5,9 @@ import Intouch from './Intouch';
 import PillThought from './PillThought';
 import Palkia from './Palkia';
 
-
+/**
+ * The main App component that sets up the routing for the application.
+ */
 const App: React.FC = () => {
   return (
     <Router>
