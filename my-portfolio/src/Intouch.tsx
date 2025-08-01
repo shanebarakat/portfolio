@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import Intouch from './assets/Placeholder (2).png';
 
 const About: React.FC = () => {
-
+  // Effect to scroll to the top of the page on component mount
   useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
@@ -99,4 +99,8 @@ const About: React.FC = () => {
   );
 };
 
+/**
+ * About component for displaying internship details at IntouchCX.
+ * @returns {JSX.Element} The JSX element for the About page.
+ */
 export default About;
