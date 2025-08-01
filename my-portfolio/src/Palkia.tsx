@@ -3,8 +3,13 @@ import PalkiaVideo from './assets/Black Playful Animated Welcome Channel Youtube
 import TechStack from './assets/Palkia Tech Stack (2).png'
 import TechRec from './assets/Palkia Recognition.png'
 
+/**
+ * About component for displaying information about Palkia AI.
+ * @returns {JSX.Element} The JSX element for the About page.
+ */
 const About: React.FC = () => {
 
+  // This useEffect hook scrolls the window to the top when the component mounts to reset the view
   useEffect(() => {
       window.scrollTo(0, 0);
     }, []);
