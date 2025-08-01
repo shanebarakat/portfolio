@@ -2,16 +2,18 @@ import React from 'react';
 import PillThought from './assets/Placeholder (3).png';
 import PharmasaveVideo from './assets/PillThought Market Video 2.mov';
 import Origins from './assets/origins.png';
-import achievements from './assets/achievments.png';
-import future from './assets/future.png';
+import Achievements from './assets/achievments.png';  // Renamed for consistent PascalCase
+import Future from './assets/future.png';  // Renamed for consistent PascalCase
 import { useEffect } from 'react';
 
+/**
+ * Functional component for the About page, displaying company information and media.
+ */
 const About: React.FC = () => {
+  // Effect to scroll to the top of the page on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-
 
   return (
     <div className="bg-black text-sm sm:text-base text-white min-h-screen w-screen flex flex-col justify-center items-center px-6">
@@ -77,7 +79,7 @@ const About: React.FC = () => {
 
             <h2 className="text-[25px] sm:text-3xl font-normal mb-4 font-hyperlegible">Partners & Achievements</h2>
             <img
-              src={achievements}
+              src={Achievements}
               alt="Achievements"
               className="rounded-lg cursor-pointer w-full h-auto mb-6"
             />
@@ -90,7 +92,7 @@ const About: React.FC = () => {
               Looking ahead, we aim to expand our reach to more pharmacies and healthcare centers across the Waterloo Region and beyond. Our vision includes offering advanced financial solutions to support these institutions, growing our team, and continuing to innovate within the healthcare industry. Every step forward brings us closer to transforming the way pharmacies operate, ensuring that both businesses and their customers thrive.
             </p>
             <img
-              src={future}
+              src={Future}
               alt="Future"
               className="rounded-lg cursor-pointer w-full h-auto mb-6"
             />
