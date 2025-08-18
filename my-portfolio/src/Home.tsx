@@ -11,6 +11,8 @@ import Palkialogo from './assets/Palkia_Logo-removebg-preview.png'
 import Intouchlogo from './assets/IntouchCX logo.png'
 import ShopifyLogo from './assets/Shopify Logo.png'
 import PolarityLogo from './assets/startup (1).png'
+import Polarity from './assets/Polarity (2).png'
+import AforeLogo from './assets/Afore.jpg'
 
 const App: React.FC = () => {
   const navigate = useNavigate(); // Initialize the navigate function
@@ -82,26 +84,35 @@ const App: React.FC = () => {
         <div className="w-[48%] pl-1">
           <h3 className="text-2xl font-hyperlegible font-semibold mb-3">Recently, I...</h3>
           <ul className="space-y-2 font-noto text-gray-300">
-          <li className="flex items-center flex-wrap gap-1">
-  → Won Spurhacks ($10k) for <a href="https://www.polarity.cc" target="_blank" rel="noreferrer" className="group inline-flex items-center">
-    <img 
-      src={PolarityLogo} 
-      className='w-[17px] mr-1 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-8' 
-      alt="Polarity"
-    /> 
-    <span className="text-gray-200 transition-all duration-300 group-hover:text-white group-hover:underline">
-      Polarity
-    </span>
-  </a>  & joined SPUR Accelerator at $1B HQ
-</li>
-          <li className="flex items-center flex-wrap gap-1">
+            <li className="flex items-center flex-wrap gap-1">
+            → Founded 
+            <a href="https://www.polarity.cc" target="_blank" rel="noreferrer" className="group inline-flex items-center">
+              <img 
+              src={PolarityLogo} 
+              className='w-[17px] mr-1 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-8' 
+              alt="Polarity"
+              /> 
+              <span className="text-gray-200 transition-all duration-300 group-hover:text-white group-hover:underline">
+              Polarity
+              </span>
+            </a>
+            , won SPURHACKS ($10k), now backed by <a href="https://www.afore.vc/portfolio" target="_blank" rel="noreferrer" className="group inline-flex items-center"><img 
+              src={AforeLogo} 
+              className='w-[17px] mr-1 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-8' 
+              alt="Afore Capital"
+              />  <span className="text-blue-400 transition-all duration-300 group-hover:text-blue group-hover:underline">
+              Afore Capital
+              </span> 
+            </a>
+            </li>
+            <li className="flex items-center flex-wrap gap-1">
               → Secured Fall 2025 Co-Op at <a href="https://www.shopify.com/ca" target="_blank" rel="noreferrer" className="group inline-flex items-center">
-                <img 
-                  src={ShopifyLogo} 
-                  className='w-[17px] ml-1 mr-1 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-8' 
-                  alt="Shopify"
-                /> <span className="text-green-200 transition-all duration-300 group-hover:text-green-500 group-hover:underline">
-                Shopify
+              <img 
+                src={ShopifyLogo} 
+                className='w-[17px] ml-1 mr-1 transform transition-all duration-300 group-hover:scale-125 group-hover:rotate-8' 
+                alt="Shopify"
+              /> <span className="text-green-200 transition-all duration-300 group-hover:text-green-500 group-hover:underline">
+              Shopify
               </span></a> as a Software Engineer Intern
             </li>
             <li className="flex items-center flex-wrap gap-1">
@@ -160,6 +171,18 @@ const App: React.FC = () => {
       {/* Grid Layout for all screen sizes */}
       <div className="w-full max-w-screen-xl mt-8 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <div className="flex flex-col items-start">
+            <img
+              src={Polarity}
+              alt="Polarity"
+              className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[800px] h-auto duration-300"
+              onClick={() => window.open('https://polarity.cc', '_blank')}
+            />
+            <p className="mt-2 text-5px sm:text-xl text-white font-noto">Co-Founder/CTO - Polarity (Backed by Afore Capital) </p>
+            <p className="text-base text-gray-400 font-noto">June 2025 - Present</p>
+          </div>
+        
         <div className="flex flex-col items-start">
             <img
               src={Shopify}
