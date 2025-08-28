@@ -3,6 +3,9 @@ import { createRoot, type Root } from 'react-dom/client';
 import './index.css';
 import App from './App.tsx';
 
+
+
+
 /**
  * Application bootstrap and DOM mount logic.
  *
