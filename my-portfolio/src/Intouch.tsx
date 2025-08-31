@@ -1,24 +1,71 @@
-import React, {useEffect} from 'react';
+/**
+ * About component
+ *
+ * Responsibilities:
+ * - Render a static "About" / internship summary page for IntouchCX.
+ * - Provide a consistent layout and styling for the content.
+ *
+ * Side effects:
+ * - On mount, the component scrolls the window to the top to ensure the user
+ *   starts at the beginning of the page.
+ *
+ * Notes:
+ * - This file centralizes display strings and arrays into named constants to
+ *   avoid magic strings and to improve maintainability.
+ * - The scroll-to-top behavior has been extracted into a helper function to
+ *   reduce component body size and improve readability.
+ */
+
+import React, { useEffect } from 'react';
 import Intouch from './assets/Placeholder (2).png';
 
-const About: React.FC = () => {
+type Props = {};
 
+const COMPANY_NAME = 'IntouchCX';
+const ROLE_TITLE = 'Software Engineer Intern';
+const DATE_RANGE = 'Jan 2025 - April 2025';
+const COMPANY_WEBSITE_URL = 'https://www.intouchcx.com/solutions/intouchai-automation/';
+const BACK_TO_HOME_TEXT = '← Back to Home';
+const AUTHOR_NAME = 'Shane Barakat';
+const LAST_UPDATE_TEXT = 'Last Update - April 2025';
+const IMAGE_ALT_TEXT = 'IntouchCX';
+const MAX_CONTENT_WIDTH_CLASS = 'max-w-3xl';
+
+const SKILLS: readonly string[] = [
+  'Vue.js',
+  'C#',
+  '.Net',
+  'Javascript',
+  'Docker',
+  'TypeScript',
+  'UI Path',
+];
+
+/**
+ * Scrolls the window to the top. Extracted for clarity and easier testing.
+ */
+function scrollToTopOnMount(): void {
+  if (typeof window !== 'undefined' && typeof window.scrollTo === 'function') {
+    window.scrollTo(0, 0);
+  }
+}
+
+const About: React.FC<Props> = () => {
   useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
-
+    scrollToTopOnMount();
+  }, []);
 
   return (
     <div className="bg-black text-white text-sm sm:text-base min-h-screen w-screen flex flex-col justify-center items-center px-6">
       {/* Container for Links and Content */}
-      <div className="w-full max-w-3xl mt-2">
+      <div className={`w-full ${MAX_CONTENT_WIDTH_CLASS} mt-2`}>
         {/* Top Links */}
         <div className="w-full flex justify-between px-6 py-4">
           <a href="/" className="text-gray-500 font-noto hover:text-green-400 duration-300">
-            ← Back to Home
+            {BACK_TO_HOME_TEXT}
           </a>
           <a
-            href="https://www.intouchcx.com/solutions/intouchai-automation/"
+            href={COMPANY_WEBSITE_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-500 font-noto hover:text-green-400 duration-300"
@@ -29,13 +76,13 @@ const About: React.FC = () => {
 
         {/* Content */}
         <div className="p-4">
-          <h1 className="text-[35px] sm:text-5xl font-hyperlegible font-medium mb-3 font-hyperlegible font-medium text-center font-negligle">IntouchCX</h1>
-          <h2 className="text-center font-noto">Software Engineer Intern</h2>
-          <h2 className="mb-4 text-gray-500 font-noto text-center">Jan 2025 - April 2025</h2>
+          <h1 className="text-[35px] sm:text-5xl font-hyperlegible font-medium mb-3 font-hyperlegible font-medium text-center font-negligle">{COMPANY_NAME}</h1>
+          <h2 className="text-center font-noto">{ROLE_TITLE}</h2>
+          <h2 className="mb-4 text-gray-500 font-noto text-center">{DATE_RANGE}</h2>
           <div className="flex justify-center">
             <img
               src={Intouch}
-              alt="IntouchCX"
+              alt={IMAGE_ALT_TEXT}
               className="rounded-lg cursor-pointer w-full  h-auto mb-6"
             />
           </div>
@@ -46,13 +93,9 @@ const About: React.FC = () => {
             <div className="flex-1">
               <h3 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4">Skills</h3>
               <ul className="list-none space-y-q sm:text-lg text-[12px] leading-relaxed text-gray-400 font-noto ">
-                <li>Vue.js</li>
-                <li>C#</li>
-                <li>.Net</li>
-                <li>Javascript</li>
-                <li>Docker</li>
-                <li>TypeScript</li>
-                <li>UI Path</li>
+                {SKILLS.map((skill) => (
+                  <li key={skill}>{skill}</li>
+                ))}
               </ul>
             </div>
 
@@ -60,10 +103,8 @@ const About: React.FC = () => {
             <div className="flex-1">
               <h3 className="text-[25px] sm:text-3xl font-medium font-hyperlegible mb-4">Summary</h3>
               <p className="sm:text-lg text-[12px] font-noto text-gray-400 leading-relaxed">
-  IntouchCX is a global customer experience provider serving leading tech clients. As a Software Engineer Intern, I developed automation pipelines and integrated AI-driven tools to streamline internal workflows, reduce manual overhead, and enhance scalability across high-volume support operations.
-</p>
-
-
+                IntouchCX is a global customer experience provider serving leading tech clients. As a Software Engineer Intern, I developed automation pipelines and integrated AI-driven tools to streamline internal workflows, reduce manual overhead, and enhance scalability across high-volume support operations.
+              </p>
             </div>
           </div>
 
@@ -92,8 +133,8 @@ const About: React.FC = () => {
         </div>
       </div>
       <div className="flex bg-b gap-4 mt-8 justify-between w-full box-border border-t-2 border-gray-600">
-  <p className="text-gray-400 sm:text-base text-xs flex items-center justify-start py-4 ml-9">Shane Barakat</p>
-  <p className="text-gray-400 sm:text-base text-xs flex items-center py-4 justify-end mr-9">Last Update - April 2025</p>
+  <p className="text-gray-400 sm:text-base text-xs flex items-center justify-start py-4 ml-9">{AUTHOR_NAME}</p>
+  <p className="text-gray-400 sm:text-base text-xs flex items-center py-4 justify-end mr-9">{LAST_UPDATE_TEXT}</p>
 </div>
     </div>
   );
