@@ -47,7 +47,8 @@ const renderTopLink = (label: string, href: string, isExternal = false): JSX.Ele
 
 /**
  * Render a consistent titled section container.
- * Accepts a title and any JSX content for the body.
+
+Replace occurrences: 'Typescript' -> 'TypeScript', 'SQLlite' -> 'SQLite'
  */
 const renderSection = (title: string, bodyContent: React.ReactNode): JSX.Element => {
   return (
