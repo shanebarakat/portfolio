@@ -12,7 +12,11 @@ import App from './App.tsx';
  * Steps:
  * 1. Locate the DOM mount point with id "root".
  * 2. Create a React Root for concurrent rendering.
- * 3. Render the App component wrapped in StrictMode.
+if (!rootElement) {
+  console.warn('Root element with id "root" not found. App mounting aborted.');
+  // Early return to avoid attempting to createRoot
+  return;
+}
  *
  * Defensive checks are used to warn (not throw) if the mount point is missing,
  * allowing the environment to continue without raising exceptions during startup.
