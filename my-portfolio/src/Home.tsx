@@ -1,33 +1,221 @@
+/**
+ * App component - Personal portfolio landing page
+ *
+ * Purpose:
+ * - Renders a responsive hero/header with social links and a grid of project/work cards.
+ * - Provides navigation handlers for internal routes and safe external link opening.
+ *
+ * Props: none
+ *
+ * Notes:
+ * - This file is organized into sections: imports, types/constants, helpers, component.
+ * - Helper functions centralize repeated rendering and side-effect behavior to improve maintainability.
+ */
+
+import React, { useCallback } from 'react';
 import Intouch from './assets/Placeholder (2).png';
 import PillThought from './assets/Placeholder (3).png';
 import Watonomous from './assets/future (1).png';
 import Palkia from './assets/future (4).png';
 import { useNavigate } from 'react-router-dom';
-import PocketATS from './assets/pocket_ats_logo_no_shadow (1).png'
-import UWaterloo from './assets/Waterloo logo.png'
-import Shopify from './assets/Shopify.png'
-import Googlelogo from './assets/Google Logo.svg'
-import Palkialogo from './assets/Palkia_Logo-removebg-preview.png'
-import Intouchlogo from './assets/IntouchCX logo.png'
-import ShopifyLogo from './assets/Shopify Logo.png'
-import PolarityLogo from './assets/startup (1).png'
-import Polarity from './assets/Polarity (2).png'
-import AforeLogo from './assets/Afore.jpg'
+import PocketATS from './assets/pocket_ats_logo_no_shadow (1).png';
+import UWaterloo from './assets/Waterloo logo.png';
+import Shopify from './assets/Shopify.png';
+import Googlelogo from './assets/Google Logo.svg';
+import Palkialogo from './assets/Palkia_Logo-removebg-preview.png';
+import Intouchlogo from './assets/IntouchCX logo.png';
+import ShopifyLogo from './assets/Shopify Logo.png';
+import PolarityLogo from './assets/startup (1).png';
+import Polarity from './assets/Polarity (2).png';
+import AforeLogo from './assets/Afore.jpg';
 
-const App: React.FC = () => {
-  const navigate = useNavigate(); // Initialize the navigate function
+/* ===========================
+   Types & Constants
+   =========================== */
 
-  const openIntouch = () => {
-    navigate('/intouchcx'); // Navigate to the route
+type SocialLink = {
+  href: string;
+  ariaLabel: string;
+  svg: JSX.Element;
+};
+
+type GridItem = {
+  src: string;
+  alt: string;
+  title: string;
+  subtitle?: string;
+  date?: string;
+  onClick?: () => void;
+  openExternal?: boolean;
+};
+
+const SOCIAL_LINKS: SocialLink[] = [
+  {
+    href: 'https://github.com/shanebarakat',
+    ariaLabel: 'GitHub',
+    svg: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github transition-colors duration-300 hover:stroke-white"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+    ),
+  },
+  {
+    href: 'https://www.linkedin.com/in/shane-barakat/',
+    ariaLabel: 'LinkedIn',
+    svg: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin transition-colors duration-300 hover:stroke-white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+    ),
+  },
+  {
+    href: 'mailto:srbaraka@uwaterloo.ca',
+    ariaLabel: 'Email',
+    svg: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail transition-colors duration-300 hover:stroke-white"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+    ),
+  },
+  {
+    href: 'https://drive.google.com/file/d/1K2uE4zAwysAU6qhHIvyrjAnHwrpMt3s1/view?usp=sharing',
+    ariaLabel: 'Resume',
+    svg: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-user transition-colors duration-300 hover:stroke-white"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 18a3 3 0 1 0-6 0"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><circle cx="12" cy="13" r="2"/></svg>
+    ),
+  },
+];
+
+/* ===========================
+   Helpers
+   =========================== */
+
+/**
+ * Safely open an external URL in a new tab/window.
+ * Performs null-safety checks and wraps the call in try/catch.
+ */
+const safeOpenUrl = (url?: string): void => {
+  if (!url || typeof url !== 'string') return;
+  try {
+    // Prefer window.open if available
+    if (typeof window !== 'undefined' && window.open) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    }
+  } catch (err) {
+    // Swallow errors to avoid UI crashes; keep silent fallback
+    // Errors can be logged to a monitoring service if available
+  }
+};
+
+/**
+ * Render a social link anchor element.
+ */
+const renderSocialAnchor = (link: SocialLink, key: number): JSX.Element => {
+  return (
+    <a
+      key={key}
+      href={link.href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={link.ariaLabel}
+    >
+      {link.svg}
+    </a>
+  );
+};
+
+/**
+ * Render a grid card for a project or experience.
+ * This centralizes the repetitive JSX pattern into a helper for maintainability.
+ */
+const renderGridCard = (item: GridItem, key: number): JSX.Element => {
+  const handleClick = (): void => {
+    if (item.onClick) {
+      try {
+        item.onClick();
+      } catch (err) {
+        // swallow navigation errors to avoid breaking the UI
+      }
+    } else if (item.openExternal && item.src) {
+      safeOpenUrl(item.src);
+    }
   };
 
-  const openPillThougth = () => {
-    navigate('/pillthought'); // Navigate to the route
-  }
+  return (
+    <div key={key} className="flex flex-col items-start">
+      <img
+        src={item.src}
+        alt={item.alt}
+        className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[800px] h-auto duration-300"
+        onClick={handleClick}
+      />
+      <p className="mt-2 text-5px sm:text-xl text-white font-noto">{item.title}</p>
+      {item.subtitle && <p className="text-base text-gray-400 font-noto">{item.subtitle}</p>}
+      {item.date && <p className="text-base text-gray-400 font-noto">{item.date}</p>}
+    </div>
+  );
+};
 
-  const openPalkia = () => {
-    navigate('/palkia');
-  }
+/* ===========================
+   Component
+   =========================== */
+
+const App: React.FC = () => {
+  const navigate = useNavigate();
+
+  // Navigation helpers with null-safety and error handling
+  const navigateSafely = useCallback((path?: string): void => {
+    if (!path || typeof path !== 'string') return;
+    try {
+      navigate(path);
+    } catch (err) {
+      // swallow navigation errors - could be logged to monitoring
+    }
+  }, [navigate]);
+
+  const openIntouch = useCallback(() => navigateSafely('/intouchcx'), [navigateSafely]);
+  const openPillThought = useCallback(() => navigateSafely('/pillthought'), [navigateSafely]);
+  const openPalkia = useCallback(() => navigateSafely('/palkia'), [navigateSafely]);
+
+  // Grid items: use the centralized renderGridCard helper to reduce duplication
+  const gridItems: GridItem[] = [
+    {
+      src: Polarity,
+      alt: 'Polarity',
+      title: 'Co-Founder/CTO - Polarity (Backed by Afore Capital)',
+      subtitle: 'June 2025 - Present',
+      onClick: () => safeOpenUrl('https://polarity.cc'),
+    },
+    {
+      src: Shopify,
+      alt: 'Shopify',
+      title: 'Incoming SWE Intern - Shopify',
+      subtitle: 'Sept 2025 - Dec 2025',
+      onClick: () => safeOpenUrl('https://www.shopify.com/ca'),
+    },
+    {
+      src: Intouch,
+      alt: 'IntouchCX',
+      title: 'SWE Intern - IntouchCX',
+      subtitle: 'Jan 2025 - Apr 2025',
+      onClick: openIntouch,
+    },
+    {
+      src: Palkia,
+      alt: 'Palkia',
+      title: 'Project - Palkia',
+      subtitle: '2025',
+      onClick: openPalkia,
+    },
+    {
+      src: PillThought,
+      alt: 'PillThought',
+      title: 'Founding Engineer / COO - PillThought',
+      subtitle: 'Sept 2023 - April 2025',
+      onClick: openPillThought,
+    },
+    {
+      src: Watonomous,
+      alt: 'WATO',
+      title: 'Software Engineer - WATO Design Team',
+      subtitle: 'Jan 2025 - May 2025',
+      onClick: () => safeOpenUrl('https://www.watonomous.ca/about'),
+    },
+  ];
 
   return (
     <div className="bg-black bg-[radial-gradient(circle,rgba(180,180,180,0.2)_1px,rgba(0,9,29,0)_1px)] bg-[size:20px_20px] no-scrollbar text-white min-h-screen w-screen flex flex-col justify-start items-center pt-16 px-0 scrollbar-y-hide">
@@ -40,18 +228,7 @@ const App: React.FC = () => {
             Seeking Summer 2026 Internship Oppurtunities 
           </h2>
         <div className="flex gap-4">
-          <a href="https://github.com/shanebarakat" target="_blank" rel="noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github transition-colors duration-300 hover:stroke-white"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/shane-barakat/" target="_blank" rel="noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin transition-colors duration-300 hover:stroke-white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-          </a>
-          <a href="mailto:srbaraka@uwaterloo.ca" target="_blank" rel="noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail transition-colors duration-300 hover:stroke-white"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-          </a>
-          <a href="https://drive.google.com/file/d/1K2uE4zAwysAU6qhHIvyrjAnHwrpMt3s1/view?usp=sharing" target="_blank" rel="noreferrer">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-user transition-colors duration-300 hover:stroke-white"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 18a3 3 0 1 0-6 0"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><circle cx="12" cy="13" r="2"/></svg>
-          </a>
+          {SOCIAL_LINKS.map((link, idx) => renderSocialAnchor(link, idx))}
         </div> 
       </div>
 
@@ -65,18 +242,7 @@ const App: React.FC = () => {
             Seeking Summer 2026 Co-Op Oppurtunities (SWE, Data, Product)
           </h2>
           <div className="flex gap-4 mb-4">
-            <a href="https://github.com/shanebarakat" target="_blank" rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-github transition-colors duration-300 hover:stroke-white"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-            </a>
-            <a href="https://www.linkedin.com/in/shane-barakat/" target="_blank" rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin transition-colors duration-300 hover:stroke-white"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-            </a>
-            <a href="mailto:srbaraka@uwaterloo.ca" target="_blank" rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-mail transition-colors duration-300 hover:stroke-white"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </a>
-            <a href="https://drive.google.com/file/d/1K2uE4zAwysAU6qhHIvyrjAnHwrpMt3s1/view?usp=sharing" target="_blank" rel="noreferrer">
-              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="grey" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-file-user transition-colors duration-300 hover:stroke-white"><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M15 18a3 3 0 1 0-6 0"/><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><circle cx="12" cy="13" r="2"/></svg>
-            </a>
+            {SOCIAL_LINKS.map((link, idx) => renderSocialAnchor(link, idx))}
           </div>
         </div>
         
@@ -171,80 +337,7 @@ const App: React.FC = () => {
       {/* Grid Layout for all screen sizes */}
       <div className="w-full max-w-screen-xl mt-8 px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-
-        <div className="flex flex-col items-start">
-            <img
-              src={Polarity}
-              alt="Polarity"
-              className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[800px] h-auto duration-300"
-              onClick={() => window.open('https://polarity.cc', '_blank')}
-            />
-            <p className="mt-2 text-5px sm:text-xl text-white font-noto">Co-Founder/CTO - Polarity (Backed by Afore Capital) </p>
-            <p className="text-base text-gray-400 font-noto">June 2025 - Present</p>
-          </div>
-        
-        <div className="flex flex-col items-start">
-            <img
-              src={Shopify}
-              alt="IntouchCX"
-              className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[800px] h-auto duration-300"
-              onClick={() => window.open('https://www.shopify.com/ca', '_blank')}
-            />
-            <p className="mt-2 text-5px sm:text-xl text-white font-noto">Incoming SWE Intern - Shopify</p>
-            <p className="text-base text-gray-400 font-noto">Sept 2025 - Dec 2025</p>
-          </div>
-
-
-
-
-
-          {/* Grid Cell 1 - Intouch */}
-          <div className="flex flex-col items-start">
-            <img
-              src={Intouch}
-              alt="IntouchCX"
-              className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[800px] h-auto duration-300"
-              onClick={openIntouch}
-            />
-            <p className="mt-2 text-5px sm:text-xl text-white font-noto">SWE Intern - IntouchCX</p>
-            <p className="text-base text-gray-400 font-noto">Jan 2025 - Apr 2025</p>
-          </div>
-
-          {/* Grid Cell 2 - Palkia */}
-          <div className="flex flex-col items-start">
-            <img
-              src={Palkia}
-              alt="Palkia"
-              className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[800px] h-auto duration-300"
-              onClick={openPalkia}
-            />
-            <p className="mt-2 text-5px sm:text-xl font-noto text-white">Project - Palkia</p>
-            <p className="text-gray-400 font-noto text-base">2025</p>
-          </div>
-
-          {/* Grid Cell 3 - PillThought */}
-          <div className="flex flex-col items-start">
-            <img
-              src={PillThought}
-              alt="PillThought"
-              className="rounded-lg hover:opacity-60 cursor-pointer w-full max-w-[800px] h-auto duration-300"
-              onClick={openPillThougth}
-            />
-            <p className="mt-2 text-white text-5px sm:text-xl font-noto">Founding Engineer / COO - PillThought</p>
-            <p className="text-gray-400 text-base font-noto">Sept 2023 - April 2025</p>
-          </div>
-
-          {/* Grid Cell 4 - Watonomous */}
-          <div className="flex flex-col items-start">
-            <img
-              src={Watonomous}
-              alt="WATO"
-              className="rounded-lg hover:opacity-80 cursor-pointer w-full max-w-[800px] h-auto duration-300"
-              onClick={() => window.open('https://www.watonomous.ca/about', '_blank')}
-            />
-            <p className="mt-2 font-noto text-white text-5px sm:text-xl">Software Engineer - WATO Design Team</p>
-            <p className="text-gray-400 font-noto text-base">Jan 2025 - May 2025</p>
-          </div>
+          {gridItems.map((item, idx) => renderGridCard(item, idx))}
         </div>
       </div>
 
