@@ -5,8 +5,6 @@ import originsImage from './assets/origins.png';
 import achievementsImage from './assets/achievments.png';
 import futureImage from './assets/future.png';
 
-interface AboutProps {}
-
 /**
  * About page component that displays company information and media.
  *
@@ -17,7 +15,7 @@ interface AboutProps {}
  * - Media sources are validated before being used to avoid runtime errors if assets are missing.
  * - Window operations are guarded with feature detection and localized try/catch.
  */
-const About: React.FC<AboutProps> = () => {
+const About: React.FC = () => {
   // Ensure the page loads scrolled to top; guard against environments without window
   useEffect(() => {
     if (typeof window === 'undefined' || typeof window.scrollTo !== 'function') return;
