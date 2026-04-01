@@ -28,7 +28,6 @@ const safeScrollToTop = (): void => {
     }
   } catch (err) {
     // Surface a controlled error log, but do not alter UX.
-    // eslint-disable-next-line no-console
     console.error('safeScrollToTop failed:', err);
   }
 };
@@ -48,7 +47,6 @@ const safeOpenExternalLink = (url: string, event: React.MouseEvent<HTMLAnchorEle
     window.open(url, '_blank', features);
   } catch (err) {
     // Log the error without changing user experience
-    // eslint-disable-next-line no-console
     console.error('Failed to open external link:', err, url);
     // Fall back to default navigation if possible
     try {
@@ -56,7 +54,6 @@ const safeOpenExternalLink = (url: string, event: React.MouseEvent<HTMLAnchorEle
       // but keep this as a fallback only; do not throw further.
       window.location.href = url;
     } catch (fallbackErr) {
-      // eslint-disable-next-line no-console
       console.error('Fallback navigation failed:', fallbackErr);
     }
   }
@@ -68,7 +65,6 @@ const safeOpenExternalLink = (url: string, event: React.MouseEvent<HTMLAnchorEle
  * @param event - synthetic event from the image element
  */
 const handleImageLoadError = (event: React.SyntheticEvent<HTMLImageElement, Event>): void => {
-  // eslint-disable-next-line no-console
   console.error('Image failed to load:', event?.currentTarget?.src);
 };
 

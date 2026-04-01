@@ -24,7 +24,6 @@ const About: React.FC = () => {
     } catch (error) {
       // Localized error handling: log but do not break rendering
       // This can fail in restrictive environments; not critical to the component
-      // eslint-disable-next-line no-console
       console.error('Failed to scroll to top on mount:', error);
     }
   }, []);

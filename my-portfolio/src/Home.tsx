@@ -57,7 +57,6 @@ const safeOpenExternalUrl = (url: string, target: string = '_blank'): void => {
   } catch (error) {
     // Do not rethrow; log for diagnostics
     // keeping app resilient to unexpected failures
-    // eslint-disable-next-line no-console
     console.error('safeOpenExternalUrl error', error);
   }
 };
@@ -182,7 +181,6 @@ const Home: React.FC = () => {
       navigateTo(path);
     } catch (error) {
       // Log and fail silently to keep UI responsive
-      // eslint-disable-next-line no-console
       console.error('safeNavigateTo error', error);
     }
   }, [navigateTo]);
@@ -395,7 +393,6 @@ const Home: React.FC = () => {
                     }
                   } catch (error) {
                     // Log and swallow to avoid breaking the UI
-                    // eslint-disable-next-line no-console
                     console.error('portfolio grid onClick error', error);
                   }
                 }}
