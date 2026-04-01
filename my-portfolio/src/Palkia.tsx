@@ -63,7 +63,6 @@ const Palkia: React.FC = () => {
     } catch (scrollError) {
       // If scrolling fails for any reason, we swallow only that error to
       // avoid breaking the rendering flow. This is a non-critical side effect.
-      // eslint-disable-next-line no-console
       console.warn('Unable to scroll to top:', scrollError);
     }
   }, []);
