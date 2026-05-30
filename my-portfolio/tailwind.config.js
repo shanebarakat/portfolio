@@ -7,6 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         'hyperlegible': ['"Atkinson Hyperlegible"', 'sans-serif'],
         'noto': ['"Noto Sans Display"', 'sans-serif'],
       },
