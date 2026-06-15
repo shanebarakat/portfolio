@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Company / project logos
-import PolarityLogo from './assets/startup (1).png';
+import PolarityLogo from './assets/polarity.png';
 import UWaterloo from './assets/Waterloo logo.png';
 import ShopifyLogo from './assets/Shopify Logo.png';
 import Intouchlogo from './assets/IntouchCX logo.png';
@@ -160,7 +160,7 @@ const Home: React.FC = () => {
               <Sub>
                 founded{' '}
                 <Ref href="https://polarity.cc" logo={PolarityLogo} alt="Polarity">Polarity</Ref>
-                {' '}— QA Infrastructure for Agents
+                {' '}— Building Self Improving Models
               </Sub>
               <Sub>
                 turned down a{' '}
