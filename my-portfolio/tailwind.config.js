@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'serif': ['"Cormorant Garamond"', 'ui-serif', 'Georgia', 'serif'],
         'hyperlegible': ['"Atkinson Hyperlegible"', 'sans-serif'],
         'noto': ['"Noto Sans Display"', 'sans-serif'],
       },

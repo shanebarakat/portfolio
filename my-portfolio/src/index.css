@@ -4,8 +4,10 @@
 
 html,
 body {
-  background-color: #000000;
-  color: #e4e4e7;
+  /* Light version is the main page; the dark /classic page paints its own
+     full-height black background on top of this. */
+  background-color: #ffffff;
+  color: #18181b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
