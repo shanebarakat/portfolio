@@ -364,7 +364,7 @@ const LightSite: React.FC = () => {
   const Page = PAGES[active];
 
   return (
-    <div className="min-h-screen w-full bg-white font-serif font-medium text-zinc-900 antialiased">
+    <div className="min-h-screen w-full bg-stone-50 font-serif font-medium text-zinc-900 antialiased">
       <main className="mx-auto w-full max-w-2xl px-6 py-16 sm:py-20">
         {/* Nav */}
         <nav className="mb-9 flex flex-wrap gap-x-6 gap-y-1 text-base">
