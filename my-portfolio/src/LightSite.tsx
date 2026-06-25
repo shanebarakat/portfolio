@@ -1,37 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import PalkiaRecognition from './assets/Palkia Recognition.png';
+import {
+  NAV,
+  PROJECTS,
+  RESEARCH,
+  SITE_NAME,
+  SOCIALS,
+  WORK,
+  HOME,
+  type ResearchEntry,
+} from './siteContent';
 
 /**
  * LightSite — the main, light/white version of the portfolio.
  *
- * A small classic personal-site format: serif throughout, blue text links,
- * a top nav, and the name as a large bold heading on every page. The site is
- * a static SPA (Vercel rewrites every path to index.html), so we pick the
- * page from the current pathname instead of pulling in a router. Nav items
- * are plain <a> links (a full reload is fine for a tiny static site).
- *
- *   "/"          → Home
- *   "/work"      → Work
- *   "/projects"  → Projects
- *   "/research"  → Research
+ * Agent-readable mirrors are generated at build time:
+ *   /content.json, /llms.txt, and static HTML under /work, /projects, /research.
  */
 
-const NAME = 'Shane Barakat';
-
 type PageId = 'home' | 'work' | 'projects' | 'research';
-
-const NAV: { id: PageId; label: string; href: string }[] = [
-  { id: 'home', label: 'Home', href: '/' },
-  { id: 'work', label: 'Work', href: '/work' },
-  { id: 'projects', label: 'Projects', href: '/projects' },
-  { id: 'research', label: 'Research', href: '/research' },
-];
 
 /* ===========================
    Shared inline pieces
    =========================== */
 
-/** A blue text link (no underline until hover) — matches the reference site. */
 const A: React.FC<{ href: string; children: React.ReactNode }> = ({
   href,
   children,
@@ -46,7 +38,6 @@ const A: React.FC<{ href: string; children: React.ReactNode }> = ({
   </a>
 );
 
-/** A bold serif section heading, e.g. "Currently:" / "Socials". */
 const SectionHeading: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => (
@@ -67,7 +58,6 @@ function useOverlayLock(onClose: () => void) {
   }, [onClose]);
 }
 
-/** Full-screen image overlay, centered. Click outside or press Escape to close. */
 const ImageLightbox: React.FC<{
   src: string;
   alt: string;
@@ -93,7 +83,6 @@ const ImageLightbox: React.FC<{
   );
 };
 
-/** Embedded PDF viewer with download. Click outside or press Escape to close. */
 const PdfLightbox: React.FC<{
   src: string;
   title: string;
@@ -134,57 +123,69 @@ const PdfLightbox: React.FC<{
   );
 };
 
-/** One Work/Research entry: company name, optional role, then what you did. */
 const Entry: React.FC<{
   title?: string;
   href?: string;
+  pdfHref?: string;
   onTitleClick?: () => void;
   meta?: string;
   role?: string;
   children?: React.ReactNode;
-}> = ({ title, href, onTitleClick, meta, role, children }) => (
-  <div className="mb-5">
-    {(title || meta) && (
-      <p className="text-[16px]">
-        {title &&
-          (onTitleClick ? (
-            <button
-              type="button"
-              onClick={onTitleClick}
-              className="font-bold text-zinc-900 hover:underline"
-            >
-              {title}
-            </button>
-          ) : href ? (
-            <a
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              className="font-bold text-zinc-900 hover:underline"
-            >
-              {title}
-            </a>
-          ) : (
-            <span className="font-bold text-zinc-900">{title}</span>
-          ))}
-        {meta && (
-          <span className="text-zinc-500">
-            {title ? ' ' : ''}
-            {meta}
-          </span>
-        )}
-      </p>
-    )}
-    {role && (
-      <p className="mt-0.5 text-[16px] text-zinc-600">{role}</p>
-    )}
-    {children && (
-      <p className="mt-1 text-[16px] leading-relaxed text-zinc-900">
-        {children}
-      </p>
-    )}
-  </div>
-);
+}> = ({ title, href, pdfHref, onTitleClick, meta, role, children }) => {
+  const titleNode = title ? (
+    onTitleClick ? (
+      <a
+        href={pdfHref ?? '#'}
+        onClick={(e) => {
+          e.preventDefault();
+          onTitleClick();
+        }}
+        className="font-bold text-zinc-900 hover:underline"
+      >
+        {title}
+      </a>
+    ) : href ? (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="font-bold text-zinc-900 hover:underline"
+      >
+        {title}
+      </a>
+    ) : pdfHref ? (
+      <a href={pdfHref} className="font-bold text-zinc-900 hover:underline">
+        {title}
+      </a>
+    ) : (
+      <span className="font-bold text-zinc-900">{title}</span>
+    )
+  ) : null;
+
+  return (
+    <div className="mb-5">
+      {(title || meta) && (
+        <p className="text-[16px]">
+          {titleNode}
+          {meta && (
+            <span className="text-zinc-500">
+              {title ? ' ' : ''}
+              {meta}
+            </span>
+          )}
+        </p>
+      )}
+      {role && (
+        <p className="mt-0.5 text-[16px] text-zinc-600">{role}</p>
+      )}
+      {children && (
+        <p className="mt-1 text-[16px] leading-relaxed text-zinc-900">
+          {children}
+        </p>
+      )}
+    </div>
+  );
+};
 
 /* ===========================
    Pages
@@ -195,20 +196,17 @@ const Home: React.FC = () => (
     <p className="mb-5 text-[16px] font-semibold leading-relaxed text-zinc-900">
       I'm currently building <A href="https://polarity.cc">Polarity</A>, an
       applied research lab building self-improving models, on leave from
-      engineering at <A href="https://uwaterloo.ca">UWaterloo</A>.
+      engineering at UWaterloo.
     </p>
     <p className="mb-5 text-[16px] font-semibold leading-relaxed text-zinc-900">
-      I'm passionate about building agents and post-training research. The field
-      moves fast and I find that exciting. My take on the future is that the
-      frontier era is almost over, the moat is drying up, and the models that
-      define what comes next will be open-source and built through RL, not gated
-      behind a handful of labs. I want to work on systems that improve from
-      their own experience instead of waiting on the next release.
+      {HOME.manifesto}
     </p>
     <div className="mt-7 flex flex-wrap gap-x-6 gap-y-1 text-[16px]">
-      <A href="https://github.com/shanebarakat">GitHub</A>
-      <A href="https://www.linkedin.com/in/shane-barakat/">LinkedIn</A>
-      <A href="https://x.com/shanebarakat_">X</A>
+      {SOCIALS.map((s) => (
+        <A key={s.label} href={s.href}>
+          {s.label}
+        </A>
+      ))}
     </div>
   </>
 );
@@ -216,44 +214,30 @@ const Home: React.FC = () => (
 const Work: React.FC = () => (
   <>
     <SectionHeading>Currently:</SectionHeading>
-    <Entry
-      title="Polarity"
-      href="https://polarity.cc"
-      meta="(Present)"
-      role="Co-Founder & CTO"
-    >
-      Post-training models to build collective intelligence. Backed by Afore
-      Capital.
-    </Entry>
+    {WORK.currently.map((entry) => (
+      <Entry
+        key={entry.title}
+        title={entry.title}
+        href={entry.href}
+        meta={entry.meta}
+        role={entry.role}
+      >
+        {entry.description}
+      </Entry>
+    ))}
 
     <SectionHeading>Previously:</SectionHeading>
-    <Entry
-      title="Shopify"
-      href="https://www.shopify.com/ca"
-      meta="(2025)"
-      role="Engineering"
-    >
-      Built and rolled out onboarding agents to millions of merchants.
-    </Entry>
-    <Entry
-      title="IntouchCX"
-      href="https://www.intouchcx.com"
-      meta="(2025)"
-      role="Engineering"
-    >
-      Built out enterprise internal workflow systems end to end.
-    </Entry>
-    <Entry
-      title="UWaterloo"
-      href="https://uwaterloo.ca"
-      meta="(2025)"
-      role="Undergraduate Research Assistant under Dr. Ken McKay"
-    >
-      Built models and solutions for the Chicago Bureau of Police.
-    </Entry>
-    <Entry meta="(2024 and before)">
-      A bunch of startups and other roles.
-    </Entry>
+    {WORK.previously.map((entry, i) => (
+      <Entry
+        key={entry.title ?? entry.meta ?? i}
+        title={entry.title}
+        href={entry.href}
+        meta={entry.meta}
+        role={entry.role}
+      >
+        {entry.description}
+      </Entry>
+    ))}
   </>
 );
 
@@ -262,17 +246,25 @@ const Projects: React.FC = () => {
 
   return (
     <>
-      <Entry title="Zenith" href="https://zenith.polarity.so/">
-        Sub-millisecond p95 at a billion rows. Beats Postgres and ClickHouse on
-        agent trace benchmarks. 130+ GitHub stars.
-      </Entry>
-      <Entry
-        title="Palkia"
-        onTitleClick={() => setShowPalkiaPhoto(true)}
-      >
-        RAG context engine for retrieving relevant codebase context and
-        generating structured bug reports. Won Google's AI Innovation Award.
-      </Entry>
+      {PROJECTS.map((project) =>
+        project.title === 'Palkia' ? (
+          <Entry
+            key={project.title}
+            title={project.title}
+            onTitleClick={() => setShowPalkiaPhoto(true)}
+          >
+            {project.description}
+          </Entry>
+        ) : (
+          <Entry
+            key={project.title}
+            title={project.title}
+            href={project.href}
+          >
+            {project.description}
+          </Entry>
+        ),
+      )}
       {showPalkiaPhoto && (
         <ImageLightbox
           src={PalkiaRecognition}
@@ -284,47 +276,18 @@ const Projects: React.FC = () => {
   );
 };
 
-type ResearchPaper = {
-  title: string;
-  meta: string;
-  role: string;
-  pdf: string;
-  downloadName: string;
-  description: string;
-};
-
-const RESEARCH_PAPERS: ResearchPaper[] = [
-  {
-    title: 'Behavioral Hot Paths',
-    meta: '(2026)',
-    role: 'Author, Polarity Labs',
-    pdf: '/research/hotpaths.pdf',
-    downloadName: 'behavioral-hot-paths.pdf',
-    description:
-      'Discrete, cost-aware discovery of recurring agent behaviors for self-specializing agents.',
-  },
-  {
-    title: 'Omnigrep',
-    meta: '(2025)',
-    role: 'Co-author, Polarity Labs',
-    pdf: '/research/omnigrep.pdf',
-    downloadName: 'omnigrep.pdf',
-    description:
-      'Multi-turn agentic code search. 33% relative improvement over Claude Code on CodeSearchEval.',
-  },
-];
-
 const Research: React.FC = () => {
-  const [openPaper, setOpenPaper] = useState<ResearchPaper | null>(null);
+  const [openPaper, setOpenPaper] = useState<ResearchEntry | null>(null);
 
   return (
     <>
-      {RESEARCH_PAPERS.map((paper) => (
+      {RESEARCH.map((paper) => (
         <Entry
           key={paper.title}
           title={paper.title}
           meta={paper.meta}
           role={paper.role}
+          pdfHref={paper.pdf}
           onTitleClick={() => setOpenPaper(paper)}
         >
           {paper.description}
@@ -334,7 +297,7 @@ const Research: React.FC = () => {
         <PdfLightbox
           src={openPaper.pdf}
           title={openPaper.title}
-          downloadName={openPaper.downloadName}
+          downloadName={`${openPaper.title.toLowerCase().replace(/\s+/g, '-')}.pdf`}
           onClose={() => setOpenPaper(null)}
         />
       )}
@@ -349,14 +312,10 @@ const PAGES: Record<PageId, React.FC> = {
   research: Research,
 };
 
-/* ===========================
-   Layout + router
-   =========================== */
-
 function currentPage(): PageId {
   const path = window.location.pathname.replace(/\/+$/, '') || '/';
   const match = NAV.find((n) => n.href === path);
-  return match ? match.id : 'home';
+  return (match?.id as PageId) ?? 'home';
 }
 
 const LightSite: React.FC = () => {
@@ -366,7 +325,6 @@ const LightSite: React.FC = () => {
   return (
     <div className="min-h-screen w-full bg-stone-50 font-serif font-medium text-zinc-900 antialiased">
       <main className="mx-auto w-full max-w-2xl px-6 py-16 sm:py-20">
-        {/* Nav */}
         <nav className="mb-9 flex flex-wrap gap-x-6 gap-y-1 text-base">
           {NAV.map((n) =>
             n.id === active ? (
@@ -385,12 +343,10 @@ const LightSite: React.FC = () => {
           )}
         </nav>
 
-        {/* Name */}
         <h1 className="mb-7 text-4xl font-bold tracking-tight text-zinc-900">
-          {NAME}
+          {SITE_NAME}
         </h1>
 
-        {/* Page content */}
         <Page />
       </main>
     </div>

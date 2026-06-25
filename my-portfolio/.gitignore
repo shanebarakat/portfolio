@@ -10,6 +10,13 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Generated at dev/build time for agent-readable endpoints
+public/content.json
+public/llms.txt
+public/work/
+public/projects/
+public/research/index.html
 *.local
 
 # Editor directories and files

@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Machine-readable site content for agents
+# JSON: https://shanebarakat.com/content.json
+# Text: https://shanebarakat.com/llms.txt
+
+Sitemap: https://shanebarakat.com/content.json

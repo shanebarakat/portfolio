@@ -1,9 +1,8 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
-  
+  "rewrites": [
+    {
+      "source": "/((?!research/.*\\.pdf$|content\\.json$|llms\\.txt$|robots\\.txt$|favicon\\.svg$).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
