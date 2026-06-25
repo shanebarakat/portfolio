@@ -1,6 +1,8 @@
 import React from 'react';
+import GlobePickerPage from './GlobePickerPage';
 import Home from './Home';
 import LightSite from './LightSite';
+import SpinningGlobeFavicon from './SpinningGlobeFavicon';
 
 /**
  * App - root component.
@@ -13,10 +15,22 @@ import LightSite from './LightSite';
  */
 const App: React.FC = () => {
   const path = window.location.pathname.replace(/\/+$/, '');
-  if (import.meta.env.DEV && path === '/classic') {
-    return <Home />;
+
+  let page: React.ReactNode;
+  if (path === '/globe-picker') {
+    page = <GlobePickerPage />;
+  } else if (import.meta.env.DEV && path === '/classic') {
+    page = <Home />;
+  } else {
+    page = <LightSite />;
   }
-  return <LightSite />;
+
+  return (
+    <>
+      {path !== '/globe-picker' && <SpinningGlobeFavicon />}
+      {page}
+    </>
+  );
 };
 
 export default App;
