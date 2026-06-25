@@ -63,7 +63,7 @@ export const GLOBE_VARIATIONS: GlobeVariation[] = [
     name: 'Etch Scratch',
     description: 'Chaotic short scratches. Drypoint etching texture.',
     style: 'etch-scratch',
-    spinSpeed: 0.012,
+    spinSpeed: 0.003,
     spinDirection: -1,
   },
   {
