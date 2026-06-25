@@ -8,7 +8,7 @@ import SpinningGlobeFavicon from './SpinningGlobeFavicon';
  * App - root component.
  *
  * Production serves the light multi-page site (Home / Work / Projects / Research).
- * In local dev only, "/classic" renders the original dark Home page for comparison.
+ * In local dev only: "/classic" (dark Home), "/globe-picker" (favicon variants).
  *
  * The site is a static SPA (Vercel rewrites every path to index.html), so we
  * pick the version from the current pathname rather than pulling in a router.
@@ -16,8 +16,10 @@ import SpinningGlobeFavicon from './SpinningGlobeFavicon';
 const App: React.FC = () => {
   const path = window.location.pathname.replace(/\/+$/, '');
 
+  const isGlobePicker = import.meta.env.DEV && path === '/globe-picker';
+
   let page: React.ReactNode;
-  if (path === '/globe-picker') {
+  if (isGlobePicker) {
     page = <GlobePickerPage />;
   } else if (import.meta.env.DEV && path === '/classic') {
     page = <Home />;
@@ -27,7 +29,7 @@ const App: React.FC = () => {
 
   return (
     <>
-      {path !== '/globe-picker' && <SpinningGlobeFavicon />}
+      {!isGlobePicker && <SpinningGlobeFavicon />}
       {page}
     </>
   );
