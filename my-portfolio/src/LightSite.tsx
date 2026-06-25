@@ -15,7 +15,7 @@ import {
  * LightSite — the main, light/white version of the portfolio.
  *
  * Agent-readable mirrors are generated at build time:
- *   /content.json, /llms.txt, and static HTML under /work, /projects, /research.
+ *   /content.json, /llms.txt, and a hidden block in the SPA shell.
  */
 
 type PageId = 'home' | 'work' | 'projects' | 'research';

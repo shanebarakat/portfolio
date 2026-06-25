@@ -214,31 +214,6 @@ function writeAgentFiles(outDir: string) {
   );
   fs.writeFileSync(path.join(outDir, 'llms.txt'), buildLlmsTxt() + '\n');
 
-  const pages = [
-    { dir: 'work', title: 'Work', body: renderWorkHtml(), path: '/work' },
-    {
-      dir: 'projects',
-      title: 'Projects',
-      body: renderProjectsHtml(),
-      path: '/projects',
-    },
-    {
-      dir: 'research',
-      title: 'Research',
-      body: renderResearchHtml(),
-      path: '/research',
-    },
-  ];
-
-  for (const page of pages) {
-    const dir = path.join(outDir, page.dir);
-    fs.mkdirSync(dir, { recursive: true });
-    fs.writeFileSync(
-      path.join(dir, 'index.html'),
-      renderFullHtml(page.title, page.body, page.path),
-    );
-  }
-
   const indexPath = path.join(outDir, 'index.html');
   if (!fs.existsSync(indexPath)) return;
 
