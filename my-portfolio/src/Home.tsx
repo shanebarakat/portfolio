@@ -144,7 +144,7 @@ const Home: React.FC = () => {
         <div className="mb-8 flex gap-3 text-[15px] leading-relaxed text-zinc-400">
           <span aria-hidden className="mt-[2px] select-none text-[10px] text-transparent">◆</span>
           <span className="flex-1">
-            Co-Founder / CTO @ <Ref href="https://polarity.cc" logo={PolarityLogo} alt="Polarity">Polarity</Ref>
+            <Ref href="https://polarity.cc" logo={PolarityLogo} alt="Polarity">Polarity</Ref> acquired by <Ref href="https://www.wander.com">Wander</Ref>
           </span>
         </div>
 
@@ -160,7 +160,8 @@ const Home: React.FC = () => {
               <Sub>
                 founded{' '}
                 <Ref href="https://polarity.cc" logo={PolarityLogo} alt="Polarity">Polarity</Ref>
-                {' '}— Building Self Improving Models
+                {' '}— Building Self Improving Models, acquired by{' '}
+                <Ref href="https://www.wander.com">Wander</Ref>
               </Sub>
               <Sub>
                 turned down a{' '}

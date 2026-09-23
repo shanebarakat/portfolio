@@ -194,9 +194,9 @@ const Entry: React.FC<{
 const Home: React.FC = () => (
   <>
     <p className="mb-5 text-[16px] font-semibold leading-relaxed text-zinc-900">
-      I'm currently building <A href="https://polarity.cc">Polarity</A>, an
-      applied research lab building self-improving models, on leave from
-      engineering at UWaterloo.
+      <A href="https://polarity.cc">Polarity</A>, the applied research lab I
+      co-founded, was acquired by <A href="https://www.wander.com">Wander</A>.
+      I'm on leave from engineering at UWaterloo.
     </p>
     <p className="mb-5 text-[16px] font-semibold leading-relaxed text-zinc-900">
       {HOME.manifesto}

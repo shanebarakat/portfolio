@@ -33,8 +33,11 @@ export const NAV: NavItem[] = [
 
 export const HOME = {
   intro:
-    "I'm currently building Polarity, an applied research lab building self-improving models, on leave from engineering at UWaterloo.",
-  introLinks: [{ label: 'Polarity', href: 'https://polarity.cc' }],
+    "Polarity, the applied research lab I co-founded, was acquired by Wander. I'm on leave from engineering at UWaterloo.",
+  introLinks: [
+    { label: 'Polarity', href: 'https://polarity.cc' },
+    { label: 'Wander', href: 'https://www.wander.com' },
+  ],
   manifesto: `I'm passionate about building agents and post-training research. The field moves fast and I find that exciting. My take on the future is that the frontier era is almost over, the moat is drying up, and the models that define what comes next will be open-source and built through RL, not gated behind a handful of labs. I want to work on systems that improve from their own experience instead of waiting on the next release.`,
 };
 
@@ -47,15 +50,23 @@ export const SOCIALS: SocialLink[] = [
 export const WORK = {
   currently: [
     {
-      title: 'Polarity',
-      href: 'https://polarity.cc',
+      title: 'Wander',
+      href: 'https://www.wander.com',
       meta: '(Present)',
-      role: 'Co-Founder & CTO',
+      role: 'Engineering',
       description:
-        'Post-training models to build collective intelligence. Backed by Afore Capital.',
+        'Building agents and models into the engineering stack so the team ships faster.',
     },
   ] satisfies WorkEntry[],
   previously: [
+    {
+      title: 'Polarity',
+      href: 'https://polarity.cc',
+      meta: '(2025-2026)',
+      role: 'Co-Founder & CTO',
+      description:
+        'Post-training models to build collective intelligence. Backed by Afore Capital. Acquired by Wander.',
+    },
     {
       title: 'Shopify',
       href: 'https://www.shopify.com/ca',

@@ -60,10 +60,13 @@ function workEntryHtml(entry: WorkEntry) {
 }
 
 function renderHomeHtml() {
-  const intro = esc(HOME.intro).replace(
-    'Polarity',
-    '<a href="https://polarity.cc">Polarity</a>',
-  );
+  let intro = esc(HOME.intro);
+  for (const link of HOME.introLinks) {
+    intro = intro.replaceAll(
+      esc(link.label),
+      `<a href="${esc(link.href)}">${esc(link.label)}</a>`,
+    );
+  }
   const socials = SOCIALS.map(
     (s) => `<a href="${esc(s.href)}">${esc(s.label)}</a>`,
   ).join(' | ');
@@ -118,7 +121,7 @@ function renderFullHtml(pageTitle: string, bodyHtml: string, canonicalPath: stri
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${esc(pageTitle)} — ${esc(SITE_NAME)}</title>
-  <meta name="description" content="Portfolio of Shane Barakat — Co-Founder &amp; CTO at Polarity. Agents, post-training research, and applied ML." />
+  <meta name="description" content="Portfolio of Shane Barakat — Co-Founder of Polarity, acquired by Wander. Agents, post-training research, and applied ML." />
   <link rel="canonical" href="${esc(SITE_URL + canonicalPath)}" />
   <link rel="alternate" type="application/json" href="/content.json" title="Structured site content" />
   <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain text site summary" />
@@ -231,7 +234,7 @@ function writeAgentFiles(outDir: string) {
   if (!updated.includes('content.json')) {
     updated = updated.replace(
       '</head>',
-      '  <link rel="alternate" type="application/json" href="/content.json" title="Structured site content" />\n  <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain text site summary" />\n  <meta name="description" content="Portfolio of Shane Barakat — Co-Founder &amp; CTO at Polarity. Agents, post-training research, and applied ML." />\n</head>',
+      '  <link rel="alternate" type="application/json" href="/content.json" title="Structured site content" />\n  <link rel="alternate" type="text/plain" href="/llms.txt" title="Plain text site summary" />\n  <meta name="description" content="Portfolio of Shane Barakat — Co-Founder of Polarity, acquired by Wander. Agents, post-training research, and applied ML." />\n</head>',
     );
   }
   fs.writeFileSync(indexPath, updated);
